@@ -9,5 +9,9 @@ dotenv.config({
 })
 
 export const settings = {
-  port: process.env.PORT || 80
+  port: process.env.PORT || 80,
+
+  logger: {
+    level: process.env.LOG_LEVEL || 'info'
+  }
 }

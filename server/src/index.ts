@@ -1,6 +1,9 @@
 import { settings } from '../conf/settings'
 import { app } from './app'
+import { logger } from './logger'
 
 app.listen(settings.port, (): void => {
-  console.log('Server started on port: ' + settings.port)
+  logger.info('Server has started', {
+    port: settings.port
+  })
 })

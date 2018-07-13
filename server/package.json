@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
-    "koa": "^2.5.2"
+    "koa": "^2.5.2",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
     "@types/koa": "^2.0.46",
+    "@types/winston": "^2.3.9",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",
