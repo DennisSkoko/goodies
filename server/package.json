@@ -1,0 +1,17 @@
+{
+  "author": "Dennis Skoko <dennis.skoko@hotmail.com> (http://dennisskoko.se)",
+  "scripts": {
+    "start": "node build/src/index",
+    "start:w": "nodemon build/src/index --watch build",
+    "build": "tsc",
+    "build:w": "tsc -w"
+  },
+  "dependencies": {
+    "koa": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "nodemon": "^1.18.1",
+    "typescript": "^2.9.2"
+  }
+}
