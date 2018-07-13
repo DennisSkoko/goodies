@@ -4,14 +4,22 @@
     "start": "node build/src/index",
     "start:w": "nodemon build/src/index --watch build",
     "build": "tsc",
-    "build:w": "tsc -w"
+    "build:w": "tsc -w",
+    "lint": "eslint . --ext ts"
   },
   "dependencies": {
     "koa": "^2.5.2"
   },
   "devDependencies": {
     "@types/koa": "^2.0.46",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.18.1",
-    "typescript": "^2.9.2"
+    "typescript": "^2.9.2",
+    "typescript-eslint-parser": "^16.0.1"
   }
 }
