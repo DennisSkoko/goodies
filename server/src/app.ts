@@ -1,3 +1,3 @@
-import * as Koa from 'koa'
+import * as express from 'express'
 
-export const app = new Koa()
+export const app = express()
