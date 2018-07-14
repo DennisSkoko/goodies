@@ -1,3 +1,5 @@
+import 'reflect-metadata'
+
 import { settings } from '../conf/settings'
 import { app } from './app'
 import { logger } from './logger'

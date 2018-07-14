@@ -5,16 +5,21 @@
     "start:w": "nodemon build/src/index --watch build",
     "build": "tsc",
     "build:w": "tsc -w",
-    "lint": "eslint . --ext ts"
+    "lint": "eslint . --ext ts",
+    "db": "typeorm --config build/conf/typeorm"
   },
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "reflect-metadata": "^0.1.12",
+    "typeorm": "^0.2.7",
     "winston": "^3.0.0"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
     "@types/express": "^4.16.0",
+    "@types/node": "^10.5.2",
     "@types/winston": "^2.3.9",
     "eslint": "^5.1.0",
     "eslint-config-standard": "^11.0.0",
