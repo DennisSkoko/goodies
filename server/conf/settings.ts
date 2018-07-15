@@ -11,9 +11,14 @@ dotenv.config({
   path: path.join(root, '.env')
 })
 
+export interface HasherSettings {
+  saltRounds: number
+}
+
 export interface Settings {
   port: string | number
   database: ConnectionOptions
+  hasher: HasherSettings
   logger: LoggerOptions
 }
 
@@ -34,6 +39,10 @@ export const settings: Settings = {
     entities: [
       path.join(root, 'build/src/db/entities/**/*.js')
     ]
+  },
+
+  hasher: {
+    saltRounds: 10
   },
 
   logger: {
