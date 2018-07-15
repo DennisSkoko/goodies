@@ -1,7 +1,5 @@
 import * as path from 'path'
 import * as dotenv from 'dotenv'
-
-import { LoggerOptions } from 'winston'
 import { ConnectionOptions } from 'typeorm'
 
 // Will be the server folder after building
@@ -11,15 +9,15 @@ dotenv.config({
   path: path.join(root, '.env')
 })
 
-export interface HasherSettings {
-  saltRounds: number
-}
-
 export interface Settings {
   port: string | number
   database: ConnectionOptions
-  hasher: HasherSettings
-  logger: LoggerOptions
+  hasher: {
+    saltRounds: number
+  }
+  logger: {
+    level: string
+  }
 }
 
 export const settings: Settings = {
