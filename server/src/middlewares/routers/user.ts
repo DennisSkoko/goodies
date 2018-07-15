@@ -20,7 +20,7 @@ user.route('/api/user')
 
       if (errors.length === 0) {
         const newUser = await db.manager.save(user)
-        res.json({ id: newUser.id })
+        res.status(201).json({ id: newUser.id })
       } else {
         res.status(422).json(
           errors.map(error => ({
