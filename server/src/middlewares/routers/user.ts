@@ -9,13 +9,13 @@ export const user = Router()
 
 user.route('/api/user')
   .post(async (req: Request, res: Response, next: NextFunction) => {
-    const user = new User()
-
-    user.name = req.body.name
-    user.email = req.body.email
-    user.password = await hasher.hash(req.body.password)
-
     try {
+      const user = new User()
+
+      user.name = req.body.name
+      user.email = req.body.email
+      user.password = await hasher.hash(req.body.password)
+
       const errors = await validate(user)
 
       if (errors.length === 0) {
