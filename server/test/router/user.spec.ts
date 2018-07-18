@@ -1,13 +1,10 @@
 import * as request from 'supertest'
 import * as express from 'express'
 
-import { connection } from '../../src/db/connection'
+import { connection as db } from '../../src/db/connection'
 import { hasher } from '../../src/hasher'
 import { User } from '../../src/db/entities'
 import { user as router } from '../../src/middlewares/routers/user'
-
-jest.mock('../../src/db/connection')
-jest.mock('../../src/hasher')
 
 describe('router.user', () => {
   let app: express.Express | null = null
@@ -19,17 +16,28 @@ describe('router.user', () => {
   })
 
   describe('POST /api/user', () => {
-    beforeAll(() => {
-      ;(hasher.hash as jest.Mock).mockReturnValue('<hash>')
+    let mockHash: jest.SpyInstance
+    let mockDbSave: jest.SpyInstance
 
-      ;(connection.manager.save as jest.Mock).mockImplementation(
-        (user: User) => Object.assign(user, {
-          id: '<uuid>'
-        })
-      )
+    beforeAll(() => {
+      mockHash = jest.spyOn(hasher, 'hash')
+      mockDbSave = jest.spyOn(db.manager, 'save')
+    })
+
+    afterAll(() => {
+      jest.resetAllMocks()
+    })
+
+    afterEach(() => {
+      jest.clearAllMocks()
     })
 
     it('should create a user with the provided values', (done) => {
+      mockHash.mockResolvedValue('<hash>')
+      mockDbSave.mockImplementation((user: User) =>
+        Object.assign(user, { id: '<uuid>' })
+      )
+
       request(app)
         .post('/api/user')
         .send({
@@ -42,24 +50,33 @@ describe('router.user', () => {
         .end((err: Error) => {
           if (err) done(err)
 
-          expect((connection.manager.save as jest.Mock).mock.calls[0][0].password)
-            .toBe('<hash>')
+          expect(mockDbSave.mock.calls[0][0].password).toBe('<hash>')
 
           done()
         })
     })
 
     it('should fail when not providing all parameters', (done) => {
+      mockHash.mockResolvedValue('<hash>')
+
       request(app)
         .post('/api/user')
         .send({
           name: 'Foo Bar'
         })
         .expect(422)
-        .end(done)
+        .end(err => {
+          if (err) done(err)
+
+          expect(mockHash).toBeCalled()
+
+          done()
+        })
     })
 
     it('should fail when providing invalid email', (done) => {
+      mockHash.mockResolvedValue('<hash>')
+
       request(app)
         .post('/api/user')
         .send({
@@ -72,8 +89,7 @@ describe('router.user', () => {
     })
 
     it('should fail when providing invalid email', (done) => {
-      ;(connection.manager.save as jest.Mock)
-        .mockRejectedValue(new Error('Generic Error'))
+      mockDbSave.mockRejectedValue(new Error('Generic Error'))
 
       request(app)
         .post('/api/user')
