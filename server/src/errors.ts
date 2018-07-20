@@ -22,3 +22,5 @@ export class UnprocessableEntity extends Error {
     )
   }
 }
+
+export class NotFound extends Error {}

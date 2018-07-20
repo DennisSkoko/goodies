@@ -1,7 +1,7 @@
 import * as express from 'express'
 
 import { errorHandler } from './error-handler'
-import { notFoundHandler } from './not-found-handler'
+import { notFoundHandler } from './not-found'
 import { routers } from './routers'
 
 export const middlewares: Array<express.RequestHandler | express.ErrorRequestHandler> = [

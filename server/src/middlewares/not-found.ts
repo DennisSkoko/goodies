@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express'
 
+import { NotFound } from '../errors'
+
 export const notFoundHandler: RequestHandler =
-  (_req: Request, res: Response, _next: NextFunction) => {
-    res.status(404).json({
-      status: 'Not Found'
-    })
+  (_req: Request, _res: Response, next: NextFunction) => {
+    next(new NotFound())
   }
