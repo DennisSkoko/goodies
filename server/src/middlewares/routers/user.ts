@@ -4,6 +4,7 @@ import { validate } from 'class-validator'
 import { connection as db } from '../../db/connection'
 import { User } from '../../db/entities'
 import { hasher } from '../../hasher'
+import { UnprocessableEntity } from '../../errors'
 
 export const user = Router()
 
@@ -22,21 +23,16 @@ user.route('/api/user')
         const newUser = await db.manager.save(user)
         res.status(201).json({ id: newUser.id })
       } else {
-        res.status(422).json(
-          errors.map(error => ({
-            property: error.property,
-            constraints: Object.values(error.constraints)
-          }))
-        )
+        next(UnprocessableEntity.makeFromClassValidatorErrors(errors))
       }
     } catch (err) {
       if (err.code === 'ER_DUP_ENTRY') {
-        res.status(422).json([
+        next(new UnprocessableEntity([
           {
             property: 'email',
             constraints: ['email is already in use']
           }
-        ])
+        ]))
         return
       }
 
