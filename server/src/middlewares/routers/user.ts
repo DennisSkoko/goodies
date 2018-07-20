@@ -15,16 +15,18 @@ user.route('/api/user')
 
       user.name = req.body.name
       user.email = req.body.email
-      user.password = await hasher.hash(req.body.password)
+      user.password = req.body.password
 
       const errors = await validate(user)
 
-      if (errors.length === 0) {
-        const newUser = await db.manager.save(user)
-        res.status(201).json({ id: newUser.id })
-      } else {
+      if (errors.length !== 0) {
         next(UnprocessableEntity.makeFromClassValidatorErrors(errors))
+        return
       }
+
+      user.password = await hasher.hash(user.password)
+      const newUser = await db.manager.save(user)
+      res.status(201).json({ id: newUser.id })
     } catch (err) {
       if (err.code === 'ER_DUP_ENTRY') {
         next(new UnprocessableEntity([
