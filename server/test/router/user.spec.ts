@@ -5,6 +5,7 @@ import { connection as db } from '../../src/db/connection'
 import { hasher } from '../../src/hasher'
 import { User } from '../../src/db/entities'
 import { user as router } from '../../src/middlewares/routers/user'
+import { errorHandler } from '../../src/middlewares/error-handler'
 
 describe('router.user', () => {
   let app: express.Express | null = null
@@ -13,6 +14,7 @@ describe('router.user', () => {
     app = express()
     app.use(express.json())
     app.use(router)
+    app.use(errorHandler)
   })
 
   describe('POST /api/user', () => {
@@ -57,7 +59,9 @@ describe('router.user', () => {
     })
 
     it('should fail when not providing all parameters', (done) => {
-      mockHash.mockResolvedValue('<hash>')
+      mockHash.mockRejectedValue(
+        new Error('Should not be called when password is empty')
+      )
 
       request(app)
         .post('/api/user')
@@ -88,7 +92,7 @@ describe('router.user', () => {
         .end(done)
     })
 
-    it('should fail when providing invalid email', (done) => {
+    it('should fail the database throws error', (done) => {
       mockDbSave.mockRejectedValue(new Error('Generic Error'))
 
       request(app)
