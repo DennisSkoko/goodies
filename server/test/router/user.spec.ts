@@ -53,29 +53,15 @@ describe('router.user', () => {
           if (err) done(err)
 
           expect(mockDbSave.mock.calls[0][0].password).toBe('<hash>')
-
           done()
         })
     })
 
-    it('should fail when not providing all parameters', (done) => {
-      mockHash.mockRejectedValue(
-        new Error('Should not be called when password is empty')
-      )
-
+    it('should fail when not providing parameters', (done) => {
       request(app)
         .post('/api/user')
-        .send({
-          name: 'Foo Bar'
-        })
         .expect(422)
-        .end(err => {
-          if (err) done(err)
-
-          expect(mockHash).toBeCalled()
-
-          done()
-        })
+        .end(done)
     })
 
     it('should fail when providing invalid email', (done) => {
