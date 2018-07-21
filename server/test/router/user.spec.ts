@@ -8,7 +8,7 @@ import { user as router } from '../../src/middlewares/routers/user'
 import { errorHandler } from '../../src/middlewares/error-handler'
 
 describe('router.user', () => {
-  let app: express.Express | null = null
+  let app: express.Express
 
   beforeAll(() => {
     app = express()
@@ -18,11 +18,11 @@ describe('router.user', () => {
   })
 
   describe('POST /api/user', () => {
-    let mockHash: jest.SpyInstance
+    let mockHasherHash: jest.SpyInstance
     let mockDbSave: jest.SpyInstance
 
     beforeAll(() => {
-      mockHash = jest.spyOn(hasher, 'hash')
+      mockHasherHash = jest.spyOn(hasher, 'hash')
       mockDbSave = jest.spyOn(db.manager, 'save')
     })
 
@@ -35,7 +35,7 @@ describe('router.user', () => {
     })
 
     it('should create a user with the provided values', (done) => {
-      mockHash.mockResolvedValue('<hash>')
+      mockHasherHash.mockResolvedValue('<hash>')
       mockDbSave.mockImplementation((user: User) =>
         Object.assign(user, { id: '<uuid>' })
       )
@@ -48,6 +48,7 @@ describe('router.user', () => {
           password: 'secret'
         })
         .expect(201)
+        .expect('Content-Type', /json/)
         .expect(/<uuid>/)
         .end((err: Error) => {
           if (err) done(err)
@@ -61,11 +62,12 @@ describe('router.user', () => {
       request(app)
         .post('/api/user')
         .expect(422)
+        .expect('Content-Type', /json/)
         .end(done)
     })
 
     it('should fail when providing invalid email', (done) => {
-      mockHash.mockResolvedValue('<hash>')
+      mockHasherHash.mockResolvedValue('<hash>')
 
       request(app)
         .post('/api/user')
@@ -75,10 +77,11 @@ describe('router.user', () => {
           password: 'secret'
         })
         .expect(422)
+        .expect('Content-Type', /json/)
         .end(done)
     })
 
-    it('should fail the database throws error', (done) => {
+    it('should handle error from database', (done) => {
       mockDbSave.mockRejectedValue(new Error('Generic Error'))
 
       request(app)
@@ -89,6 +92,7 @@ describe('router.user', () => {
           password: 'secret'
         })
         .expect(500)
+        .expect('Content-Type', /json/)
         .end(done)
     })
   })
