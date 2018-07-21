@@ -1,6 +1,7 @@
 import * as path from 'path'
 import * as dotenv from 'dotenv'
 import { ConnectionOptions } from 'typeorm'
+import { SignOptions } from 'jsonwebtoken'
 
 // Will be the server folder after building
 const root = path.resolve(__dirname, '../..')
@@ -14,7 +15,11 @@ export interface Settings {
   database: ConnectionOptions
   hasher: {
     saltRounds: number
-  }
+  },
+  jwt: {
+    secret: string,
+    options: SignOptions
+  },
   logger: {
     level: string
   }
@@ -41,6 +46,13 @@ export const settings: Settings = {
 
   hasher: {
     saltRounds: 10
+  },
+
+  jwt: {
+    secret: process.env.JWT_SECRET || 'goodies-jwt-secret',
+    options: {
+      expiresIn: '4h'
+    }
   },
 
   logger: {

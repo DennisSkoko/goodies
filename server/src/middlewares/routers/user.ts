@@ -5,6 +5,7 @@ import { connection as db } from '../../db/connection'
 import { User } from '../../db/entities'
 import { hasher } from '../../hasher'
 import { UnprocessableEntity } from '../../errors'
+import { jwt } from '../../jwt'
 
 export const user = Router()
 
@@ -26,7 +27,11 @@ user.route('/api/user')
 
       user.password = await hasher.hash(user.password)
       const newUser = await db.manager.save(user)
-      res.status(201).json({ id: newUser.id })
+
+      res.status(201).json({
+        id: newUser.id,
+        token: await jwt.sign({ sub: newUser.id })
+      })
     } catch (err) {
       if (err.code === 'ER_DUP_ENTRY') {
         next(new UnprocessableEntity([
