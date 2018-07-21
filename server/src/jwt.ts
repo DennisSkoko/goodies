@@ -7,7 +7,7 @@ export interface JwtPayload {
 }
 
 export const jwt = {
-  sign(payload: JwtPayload): Promise<string> {
+  sign (payload: JwtPayload): Promise<string> {
     return new Promise((resolve, reject) => {
       jsonwebtoken.sign(
         payload,

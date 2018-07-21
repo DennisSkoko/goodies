@@ -4,7 +4,7 @@ import { connection as db } from '../../db/connection'
 import { User } from '../../db/entities'
 import { hasher } from '../../hasher'
 import { UnprocessableEntity } from '../../errors'
-import { jwt } from '../../jwt';
+import { jwt } from '../../jwt'
 
 export const auth = Router()
 
