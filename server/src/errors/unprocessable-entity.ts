@@ -1,19 +1,29 @@
 import { ValidationError } from 'class-validator'
 
+import { HttpError } from './http-error'
+
 export interface FieldError {
   property: string
   constraints: string[]
 }
 
-export class UnprocessableEntity extends Error {
-  readonly fieldErrors: FieldError[]
+export class UnprocessableEntity extends HttpError {
+  private fieldErrors: FieldError[]
 
   constructor (errors: FieldError[]) {
     super()
     this.fieldErrors = errors
   }
 
-  public static makeFromClassValidatorErrors (errors: ValidationError[]) {
+  public getStatusCode (): number {
+    return 422
+  }
+
+  public getResponseBody (): any {
+    return this.fieldErrors
+  }
+
+  public static makeFromClassValidatorErrors(errors: ValidationError[]) {
     return new UnprocessableEntity(
       errors.map(error => ({
         property: error.property,
@@ -22,5 +32,3 @@ export class UnprocessableEntity extends Error {
     )
   }
 }
-
-export class NotFound extends Error {}
