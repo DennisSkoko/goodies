@@ -23,7 +23,7 @@ export class UnprocessableEntity extends HttpError {
     return this.fieldErrors
   }
 
-  public static makeFromClassValidatorErrors(errors: ValidationError[]) {
+  public static makeFromClassValidatorErrors (errors: ValidationError[]) {
     return new UnprocessableEntity(
       errors.map(error => ({
         property: error.property,
