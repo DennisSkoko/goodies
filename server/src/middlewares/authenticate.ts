@@ -35,7 +35,7 @@ export const authenticate = (): RequestHandler =>
       next()
     } catch (err) {
       if (err instanceof JsonWebTokenError) {
-        next(new Forbidden())
+        next(new Forbidden('Token is not valid'))
         return
       }
 
