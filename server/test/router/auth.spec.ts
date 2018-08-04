@@ -78,7 +78,7 @@ describe('router.auth', () => {
       request(app)
         .post('/api/auth')
         .send({
-          email: 'invalid',
+          email: 'example@email.com',
           password: 'secret'
         })
         .expect(422)
@@ -92,7 +92,7 @@ describe('router.auth', () => {
       request(app)
         .post('/api/auth')
         .send({
-          email: 'invalid',
+          email: 'example@email.com',
           password: 'secret'
         })
         .expect(500)
