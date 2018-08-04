@@ -1,10 +1,17 @@
-import { ValidationError } from 'class-validator'
+import { Result } from 'express-validator/check'
 
 import { HttpError } from './http-error'
 
 export interface FieldError {
   property: string
-  constraints: string[]
+  constraint: string
+}
+
+export interface ValidatorError {
+  location: Location,
+  param: string,
+  msg: any,
+  value?: any
 }
 
 export class UnprocessableEntity extends HttpError {
@@ -23,12 +30,13 @@ export class UnprocessableEntity extends HttpError {
     return this.fieldErrors
   }
 
-  public static makeFromClassValidatorErrors (errors: ValidationError[]) {
+  public static makeFromValidatorErrors (errors: Result<ValidatorError>) {
     return new UnprocessableEntity(
-      errors.map(error => ({
-        property: error.property,
-        constraints: Object.values(error.constraints)
-      }))
+      errors.array({ onlyFirstError: true })
+        .map((error): FieldError => ({
+          property: error.param,
+          constraint: error.msg
+        }))
     )
   }
 }
