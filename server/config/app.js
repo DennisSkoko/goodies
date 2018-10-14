@@ -10,6 +10,10 @@ dotenv.config({
 })
 
 module.exports = {
+  database: {
+    uri: process.env.GOODIES_DB_URI || 'mongodb://127.0.0.1/goodies'
+  },
+
   graphql: {
     playground: process.env.NODE_ENV !== 'production',
     debug: process.env.NODE_ENV !== 'production',
