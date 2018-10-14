@@ -1,0 +1,13 @@
+{
+  "author": "Dennis Skoko <dennis.skoko@hotmail.com>",
+  "scripts": {
+    "start": "node src/index",
+    "start:w": "nodemon src/index --watch src"
+  },
+  "dependencies": {
+    "koa": "^2.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
