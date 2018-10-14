@@ -19,5 +19,10 @@ module.exports = {
 
   http: {
     port: process.env.GOODIES_HTTP_PORT || 80
+  },
+
+  logger: {
+    level: process.env.GOODIES_LOG_LEVEL || 'info',
+    format: 'simple'
   }
 }

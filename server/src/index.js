@@ -2,7 +2,10 @@
 
 const config = require('../config/app')
 const http = require('./http')
+const logger = require('./logger')
 
 http.listen(config.http.port, () => {
-  console.log('HTTP server has started')
+  logger.info('HTTP server has started', {
+    port: config.http.port
+  })
 })

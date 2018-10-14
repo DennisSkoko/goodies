@@ -10,7 +10,8 @@
     "dotenv": "^6.1.0",
     "graphql": "^14.0.2",
     "koa": "^2.5.3",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
