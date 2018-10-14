@@ -6,7 +6,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "koa": "^2.5.3"
+    "apollo-server-koa": "^2.1.0",
+    "graphql": "^14.0.2",
+    "koa": "^2.5.3",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
