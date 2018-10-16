@@ -1,6 +1,5 @@
 'use strict'
 
-const _ = require('lodash/fp')
 const { gql } = require('apollo-server-koa')
 const User = require('../../model/user')
 
@@ -30,11 +29,7 @@ extend type Mutation {
 
 module.exports.resolvers = {
   Query: {
-    users: () => User.find().lean()
-      .then(_.map(user => ({
-        ...user,
-        id: user._id.toString()
-      })))
+    users: () => User.find()
   },
 
   Mutation: {
