@@ -9,7 +9,7 @@ type User {
   name: String!
   email: String!
   suspended: Boolean!
-  createdAt: String!
+  created: String!
 }
 
 extend type Query {

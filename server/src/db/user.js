@@ -32,10 +32,15 @@ module.exports = database.define(
       type: Sequelize.BOOLEAN,
       defaultValue: true,
       allowNull: false
+    },
+
+    created: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
+      allowNull: false
     }
   },
   {
-    timestamps: true,
-    updatedAt: false
+    timestamps: false
   }
 )
