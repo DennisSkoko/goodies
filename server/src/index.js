@@ -1,16 +1,16 @@
 'use strict'
 
 const config = require('../config/app')
-const db = require('./db')
 const http = require('./http')
 const logger = require('./logger')
+const database = require('./database')
 
-db
+database.authenticate()
   .then(() => {
-    logger.info('Successfully connected to MongoDB instance')
+    logger.info('Successfully connected to the database')
   })
   .catch(err => {
-    logger.error('Failed to connect to MongoDB instance', {
+    logger.error('Failed to connected to the database', {
       error: err.message
     })
   })

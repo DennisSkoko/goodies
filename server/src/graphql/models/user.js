@@ -1,7 +1,7 @@
 'use strict'
 
 const { gql } = require('apollo-server-koa')
-const User = require('../../model/user')
+const User = require('../../db/user')
 
 module.exports.typeDef = gql`
 type User {
@@ -9,7 +9,7 @@ type User {
   name: String!
   email: String!
   suspended: Boolean!
-  created: String!
+  createdAt: String!
 }
 
 extend type Query {
@@ -30,11 +30,11 @@ extend type Mutation {
 
 module.exports.resolvers = {
   Query: {
-    users: () => User.find(),
+    users: () => User.findAll(),
     user: (root, { id }) => User.findById(id)
   },
 
   Mutation: {
-    createUser: (root, { user }) => User.create(user)
+    createUser: (root, { user }) => User.build(user).save()
   }
 }

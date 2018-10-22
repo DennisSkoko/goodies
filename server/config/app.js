@@ -11,7 +11,13 @@ dotenv.config({
 
 module.exports = {
   database: {
-    uri: process.env.GOODIES_DB_URI || 'mongodb://127.0.0.1/goodies'
+    dialect: 'mysql',
+    host: process.env.GOODIES_DB_HOST || '127.0.0.1',
+    port: process.env.GOODIES_DB_PORT || 3306,
+    username: process.env.GOODIES_DB_USER || 'root',
+    password: process.env.GOODIES_DB_PASS || '',
+    database: process.env.GOODIES_DB_NAME || 'goodies',
+    logging: false
   },
 
   graphql: {

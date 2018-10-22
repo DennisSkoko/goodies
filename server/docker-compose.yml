@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   server:
     container_name: goodies-server
@@ -13,6 +14,9 @@ services:
 
   database:
     container_name: goodies-database
-    image: mongo
-    ports:
-      - 27017:27017
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: ${GOODIES_DB_NAME}
+      MYSQL_USER: ${GOODIES_DB_USER}
+      MYSQL_PASSWORD: ${GOODIES_DB_PASS}
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
