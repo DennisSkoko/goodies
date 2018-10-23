@@ -30,7 +30,7 @@ module.exports = database.define(
 
     suspended: {
       type: Sequelize.BOOLEAN,
-      defaultValue: true,
+      defaultValue: false,
       allowNull: false
     },
 

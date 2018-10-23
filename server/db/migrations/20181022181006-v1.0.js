@@ -5,8 +5,7 @@ module.exports = {
     queryInterface.createTable('users', {
       id: {
         type: Sequelize.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV4
+        primaryKey: true
       },
 
       email: {
@@ -27,13 +26,11 @@ module.exports = {
 
       suspended: {
         type: Sequelize.BOOLEAN,
-        defaultValue: true,
         allowNull: false
       },
 
       created: {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
         allowNull: false
       }
     })
