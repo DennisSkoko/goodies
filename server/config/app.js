@@ -27,6 +27,10 @@ module.exports = {
     path: '/api/graphql'
   },
 
+  hasher: {
+    saltLength: 10
+  },
+
   http: {
     port: process.env.GOODIES_HTTP_PORT || 80
   },

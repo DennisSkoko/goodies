@@ -1,6 +1,7 @@
 'use strict'
 
 const { gql } = require('apollo-server-koa')
+const hasher = require('../../hasher')
 const User = require('../../db/user')
 
 module.exports.typeDef = gql`
@@ -35,6 +36,7 @@ module.exports.resolvers = {
   },
 
   Mutation: {
-    createUser: (root, { user }) => User.build(user).save()
+    createUser: (root, { user }) => hasher.hash(user.password)
+      .then(hash => User.build({ ...user, password: hash }).save())
   }
 }

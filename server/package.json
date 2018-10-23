@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "apollo-server-koa": "^2.1.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^6.1.0",
     "graphql": "^14.0.2",
     "koa": "^2.5.3",
