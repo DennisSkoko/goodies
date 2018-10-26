@@ -17,7 +17,8 @@ module.exports = {
     username: process.env.GOODIES_DB_USER || 'root',
     password: process.env.GOODIES_DB_PASS || '',
     database: process.env.GOODIES_DB_NAME || 'goodies',
-    logging: false
+    logging: false,
+    operatorsAliases: false
   },
 
   graphql: {
