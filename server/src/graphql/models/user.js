@@ -32,16 +32,23 @@ extend type Mutation {
 
 module.exports.resolvers = {
   Query: {
-    users: () => User.findAll(),
-    user: (root, { id }) => User.findById(id)
+    users () {
+      return User.findAll()
+    },
+
+    user (root, { id }) {
+      return User.findById(id)
+    }
   },
 
   Mutation: {
-    createUser: (root, { user }) => hasher.hash(user.password)
-      .then(hash => User.build({ ...user, password: hash }).save())
-      .then(user => {
-        logger.verbose('Created a user', { id: user.id })
-        return user
-      })
+    createUser (root, { user }) {
+      return hasher.hash(user.password)
+        .then(hash => User.build({ ...user, password: hash }).save())
+        .then(user => {
+          logger.verbose('Created a user', { id: user.id })
+          return user
+        })
+    }
   }
 }
