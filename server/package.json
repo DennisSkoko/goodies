@@ -6,6 +6,7 @@
     "test": "jest --coverage",
     "test:w": "jest --watch",
     "lint": "eslint --ignore-path .gitignore .",
+    "db": "sequelize",
     "db:migrate": "sequelize db:migrate"
   },
   "dependencies": {
