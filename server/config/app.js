@@ -36,6 +36,13 @@ module.exports = {
     port: process.env.GOODIES_HTTP_PORT || 80
   },
 
+  jwt: {
+    secret: process.env.JWT_SECRET || 'goodies-jwt-secret',
+    options: {
+      expiresIn: '4h'
+    }
+  },
+
   logger: {
     level: process.env.GOODIES_LOG_LEVEL || 'info',
     format: 'simple'
