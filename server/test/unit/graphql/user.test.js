@@ -5,7 +5,6 @@ const hasher = require('../../../src/hasher')
 const model = require('../../../src/graphql/models/user')
 
 jest.mock('../../../src/db/user')
-jest.mock('../../../src/logger')
 
 const mutation = model.resolvers.Mutation
 

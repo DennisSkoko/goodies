@@ -7,7 +7,6 @@ const jwt = require('../../../src/jwt')
 
 jest.mock('../../../src/hasher')
 jest.mock('../../../src/jwt')
-jest.mock('../../../src/logger')
 
 const mutation = model.resolvers.Mutation
 
