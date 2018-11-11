@@ -5,7 +5,7 @@ const helper = require('../helper')
 const app = require('../../src/app')
 const User = require('../../src/db/user')
 
-afterEach(() => User.destroy({ truncate: true }))
+afterEach(() => User.destroy({ where: {} }))
 
 it('creates a user', () => {
   return request(app.callback())

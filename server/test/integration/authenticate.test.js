@@ -15,7 +15,7 @@ beforeAll(async () => User
   .save()
 )
 
-afterEach(() => User.destroy({ truncate: true }))
+afterEach(() => User.destroy({ where: {} }))
 
 it('returns a token when authenticated', () => {
   return request(app.callback())
