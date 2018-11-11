@@ -25,7 +25,7 @@ it('creates a user', () => {
       variables: {
         user: {
           name: 'Foo',
-          email: 'foo@example.com',
+          email: 'create-user@example.com',
           password: 'secret'
         }
       }
@@ -36,7 +36,7 @@ it('creates a user', () => {
         expect.objectContaining({
           id: expect.anything(),
           name: 'Foo',
-          email: 'foo@example.com',
+          email: 'create-user@example.com',
           suspended: false,
           created: expect.anything()
         })

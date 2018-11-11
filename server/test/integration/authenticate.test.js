@@ -9,7 +9,7 @@ const User = require('../../src/db/user')
 beforeAll(async () => User
   .build({
     name: 'Foo',
-    email: 'foo@example.com',
+    email: 'authenticate@example.com',
     password: await hasher.hash('secret')
   })
   .save()
@@ -27,7 +27,7 @@ it('returns a token when authenticated', () => {
         }
       `,
       variables: {
-        email: 'foo@example.com',
+        email: 'authenticate@example.com',
         password: 'secret'
       }
     })
