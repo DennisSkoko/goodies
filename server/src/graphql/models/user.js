@@ -44,7 +44,7 @@ module.exports.resolvers = {
   Mutation: {
     createUser (root, { user }) {
       return hasher.hash(user.password)
-        .then(hash => User.build({ ...user, password: hash }).save())
+        .then(hash => User.create({ ...user, password: hash }))
         .then(user => {
           logger.verbose('Created a user', { id: user.id })
           return user

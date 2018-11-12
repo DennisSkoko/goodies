@@ -6,14 +6,11 @@ const app = require('../../src/app')
 const hasher = require('../../src/hasher')
 const User = require('../../src/db/user')
 
-beforeAll(async () => User
-  .build({
-    name: 'Foo',
-    email: 'authenticate@example.com',
-    password: await hasher.hash('secret')
-  })
-  .save()
-)
+beforeAll(async () => User.create({
+  name: 'Foo',
+  email: 'authenticate@example.com',
+  password: await hasher.hash('secret')
+}))
 
 afterEach(() => User.destroy({ where: {} }))
 

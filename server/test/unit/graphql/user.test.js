@@ -4,13 +4,12 @@ const User = require('../../../src/db/user')
 const hasher = require('../../../src/hasher')
 const model = require('../../../src/graphql/models/user')
 
-jest.mock('../../../src/db/user')
-
 const mutation = model.resolvers.Mutation
 
 describe('mutation.createUser', () => {
   beforeAll(() => {
     jest.spyOn(hasher, 'hash').mockResolvedValue('<hash>')
+    jest.spyOn(User, 'create').mockResolvedValue({})
   })
 
   afterAll(() => {
@@ -26,8 +25,7 @@ describe('mutation.createUser', () => {
       }
     })
 
-    expect(User.save).toHaveBeenCalled()
-    expect(User.build).toHaveBeenCalledWith(
+    expect(User.create).toHaveBeenCalledWith(
       expect.objectContaining({
         name: 'Foo',
         email: 'bar@example.com',
