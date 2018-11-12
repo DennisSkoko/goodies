@@ -3,8 +3,8 @@
   "scripts": {
     "start": "node src/index",
     "start:w": "nodemon src/index --watch src --watch config",
-    "test": "jest --coverage",
-    "test:w": "jest --watch",
+    "test": "jest -i --coverage",
+    "test:w": "jest -i --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "db": "sequelize",
     "db:migrate": "sequelize db:migrate"
