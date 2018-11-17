@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const Nav = styled.nav`
   ul {
-    padding: 0
-    margin: 0
-    list-style: none
-    display: flex
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
   }
 `
 

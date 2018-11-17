@@ -2,8 +2,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Heading = styled.h1`
-  font-family: ${({ theme }) => theme.font.family}
-  font-size: ${({ theme, as }) => theme.font[as].size}
+  font-family: ${({ theme }) => theme.font.family.heading};
+  font-size: ${({ theme, as }) => theme.font[as].size};
+  font-weight: normal;
 `
 
 Heading.propTypes = {

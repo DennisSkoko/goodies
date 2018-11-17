@@ -41,8 +41,12 @@ const theme = {
   },
 
   font: {
-    family: 'sans-serif',
     baseSize: '1.1rem',
+
+    family: {
+      heading: '\'Acme\', sans-serif',
+      body: '\'Montserrat\', sans-serif'
+    },
 
     h1: { size: '2.5rem' },
     h2: { size: '2rem' },
