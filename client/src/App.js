@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import GlobalStyles from './style/GlobalStyles'
 import ThemeProvider from './style/ThemeProvider'
+import TheHeader from './components/TheHeader'
 
 class App extends Component {
   render () {
     return (
       <ThemeProvider>
-        <header>
-          <h1>Hello</h1>
-        </header>
+        <>
+          <GlobalStyles />
+          <TheHeader />
+        </>
       </ThemeProvider>
     )
   }
