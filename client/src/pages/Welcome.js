@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Heading from '../ui/Heading'
 import Jumbotron from '../ui/Jumbotron'
 import Text from '../ui/Text'
+import Button from '../ui/Button'
 
 function Welcome () {
   return (
@@ -13,6 +15,8 @@ function Welcome () {
         something that you've learned from your parents, something cool that
         you accidentally did or something that you saw on Youtube.
       </Text>
+      <Button as={Link} to='/recipe/browse' inverted>Browse recipes</Button>
+      <Button as={Link} to='/recipe/create' inverted>Create recipe</Button>
     </Jumbotron>
   )
 }
