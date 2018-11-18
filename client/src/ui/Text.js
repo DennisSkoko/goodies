@@ -5,17 +5,22 @@ const Text = styled.p`
   font-family: ${({ theme }) => theme.font.family.body};
   font-size: ${({ theme, type }) => theme.font[type].size};
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
-  margin-top: 0;
+  margin-top: ${({ marginTop }) => marginTop ? '1rem' : '0'};
+  margin-bottom: ${({ marginBottom }) => marginBottom ? '1rem' : '0'};
 `
 
 Text.propTypes = {
   type: PropTypes.oneOf(['lead', 'body', 'small']),
-  centered: PropTypes.bool
+  centered: PropTypes.bool,
+  marginTop: PropTypes.bool,
+  marginBottom: PropTypes.bool
 }
 
 Text.defaultProps = {
   type: 'body',
-  centered: false
+  centered: false,
+  marginTop: false,
+  marginBottom: true
 }
 
 export default Text
