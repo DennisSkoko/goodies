@@ -34,9 +34,9 @@ const theme = {
 
   spacing: {
     xs: '.375rem',
-    s: '.75rem',
-    m: '1.5rem',
-    l: '3rem',
+    sm: '.75rem',
+    md: '1.5rem',
+    lg: '3rem',
     xl: '6rem'
   },
 

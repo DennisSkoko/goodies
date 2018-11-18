@@ -6,7 +6,7 @@ const HeaderNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.color.white.light};
   font-size: ${({ theme }) => theme.font.body.size};
   font-family: ${({ theme }) => theme.font.family.heading};
-  padding: ${({ theme }) => theme.spacing.s};
+  padding: ${({ theme }) => theme.spacing.sm};
   display: block;
   outline: none;
   text-decoration: none;
