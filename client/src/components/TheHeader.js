@@ -9,9 +9,9 @@ function TheHeader () {
     <Header>
       <HeaderTitle>Goodies</HeaderTitle>
       <HeaderNav>
-        <HeaderNavLink href='#/'>Home</HeaderNavLink>
-        <HeaderNavLink href='#/'>About</HeaderNavLink>
-        <HeaderNavLink href='#/'>Contact</HeaderNavLink>
+        <HeaderNavLink to='/' exact>Home</HeaderNavLink>
+        <HeaderNavLink to='/about'>About</HeaderNavLink>
+        <HeaderNavLink to='/contact'>Contact</HeaderNavLink>
       </HeaderNav>
     </Header>
   )

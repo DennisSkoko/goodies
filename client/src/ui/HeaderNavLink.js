@@ -1,7 +1,8 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { transitions } from 'polished'
 
-const HeaderNavLink = styled.a`
+const HeaderNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.color.white.light};
   font-size: ${({ theme }) => theme.font.body.size};
   font-family: ${({ theme }) => theme.font.family.heading};
