@@ -21,13 +21,13 @@ const theme = {
 
     black: {
       dark: '#000',
-      base: '#333',
-      light: '#666'
+      base: '#222',
+      light: '#444'
     },
 
     white: {
-      dark: '#aaa',
-      base: '#ccc',
+      dark: '#ddd',
+      base: '#eee',
       light: '#fff'
     }
   },
