@@ -19,6 +19,7 @@ const HeaderNavLink = styled(NavLink)`
 
   &:active {
     transform: scale(.9);
+    transition: none;
   }
 
   &.active {
