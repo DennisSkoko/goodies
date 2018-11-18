@@ -5,7 +5,8 @@ const GlobalStyles = createGlobalStyle`
   ${normalize()}
 
   html {
-    font-size: ${({ theme }) => theme.font.baseSize}
+    font-size: ${({ theme }) => theme.font.baseSize};
+    overflow-y: scroll;
   }
 `
 
