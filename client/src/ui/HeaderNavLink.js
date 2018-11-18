@@ -10,14 +10,19 @@ const HeaderNavLink = styled(NavLink)`
   display: block;
   outline: none;
   text-decoration: none;
+
   ${({ theme }) => transitions(['color', 'transform'], theme.transition.normal)}
 
   &:hover {
-    color: ${({ theme }) => theme.color.white.base};
+    color: ${({ theme }) => theme.color.accent.light};
   }
 
   &:active {
     transform: scale(.9);
+  }
+
+  &.active {
+    color: ${({ theme }) => theme.color.accent.base};
   }
 `
 
