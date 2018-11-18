@@ -6,6 +6,7 @@ const Button = styled.button`
   background-color: transparent;
   border: 1px solid;
   cursor: pointer;
+  display: inline-block;
   font-family: ${({ theme }) => theme.font.family.body};
   margin: ${({ theme, margin }) => margin && `${theme.spacing.xs} ${theme.spacing.xs}`};
   text-decoration: none;
