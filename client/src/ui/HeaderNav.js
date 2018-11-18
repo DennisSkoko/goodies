@@ -31,4 +31,4 @@ HeaderNav.propTypes = {
     .isRequired
 }
 
-export default React.memo(HeaderNav)
+export default HeaderNav

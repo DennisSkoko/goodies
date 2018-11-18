@@ -15,4 +15,4 @@ ThemeProvider.propTypes = {
   children: PropTypes.node
 }
 
-export default React.memo(ThemeProvider)
+export default ThemeProvider

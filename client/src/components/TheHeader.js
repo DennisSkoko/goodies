@@ -17,4 +17,4 @@ function TheHeader () {
   )
 }
 
-export default React.memo(TheHeader)
+export default TheHeader
