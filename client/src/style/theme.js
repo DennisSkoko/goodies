@@ -1,8 +1,8 @@
 import { darken, lighten } from 'polished'
 
 const color = {
-  primary: 'palevioletred',
-  accent: 'papayawhip'
+  primary: darken(0.1, 'palevioletred'),
+  accent: darken(0.2, 'papayawhip')
 }
 
 const theme = {
@@ -14,20 +14,20 @@ const theme = {
     },
 
     accent: {
-      dark: darken(0.1, color.primary),
+      dark: darken(0.1, color.accent),
       base: color.accent,
-      light: lighten(0.1, color.primary)
+      light: lighten(0.1, color.accent)
     },
 
     black: {
       dark: '#000',
-      base: '#222',
-      light: '#444'
+      base: '#333',
+      light: '#666'
     },
 
     white: {
-      dark: '#bbb',
-      base: '#ddd',
+      dark: '#aaa',
+      base: '#ccc',
       light: '#fff'
     }
   },

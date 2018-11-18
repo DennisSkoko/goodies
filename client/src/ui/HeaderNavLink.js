@@ -16,7 +16,7 @@ const HeaderNavLink = styled.a`
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(.9);
   }
 `
 

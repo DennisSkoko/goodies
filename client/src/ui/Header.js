@@ -6,7 +6,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${({ theme }) => `${theme.spacing.s} ${theme.spacing.m} ${theme.spacing.xs}`};
+  padding: ${({ theme }) => `${theme.spacing.m} ${theme.spacing.m} ${theme.spacing.s}`};
 `
 
 export default Header
