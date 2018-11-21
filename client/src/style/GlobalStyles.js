@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: ${({ theme }) => theme.font.baseSize};
-    overflow-y: scroll;
   }
 `
 

@@ -63,6 +63,13 @@ const theme = {
     quick: '150ms',
     normal: '300ms',
     slow: '500ms'
+  },
+
+  container: {
+    maxWidth: '1248px'
+  },
+
+  grid: {
   }
 }
 
