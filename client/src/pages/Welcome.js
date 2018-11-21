@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../ui/Button'
 import Heading from '../ui/Heading'
 import Jumbotron from '../ui/Jumbotron'
 import Text from '../ui/Text'
-import Button from '../ui/Button'
 
 function Welcome () {
   return (
