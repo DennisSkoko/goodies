@@ -66,10 +66,11 @@ const theme = {
   },
 
   container: {
-    maxWidth: '1248px'
+    maxWidth: '78rem'
   },
 
   grid: {
+    gap: '1rem'
   }
 }
 

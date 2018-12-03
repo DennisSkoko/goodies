@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Grid = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: ${({ theme }) => theme.grid.gap};
   grid-template-columns: repeat(${({ columns }) => columns}, 1fr);
 `
 
