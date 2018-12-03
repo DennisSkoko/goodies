@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ApiProvider from './api/ApiProvider'
 import TheHeader from './components/TheHeader'
 import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
@@ -8,15 +9,17 @@ import ThemeProvider from './style/ThemeProvider'
 class App extends Component {
   render () {
     return (
-      <ThemeProvider>
-        <Router>
-          <>
-            <GlobalStyle />
-            <TheHeader />
-            <RouterOutlet />
-          </>
-        </Router>
-      </ThemeProvider>
+      <ApiProvider>
+        <ThemeProvider>
+          <Router>
+            <>
+              <GlobalStyle />
+              <TheHeader />
+              <RouterOutlet />
+            </>
+          </Router>
+        </ThemeProvider>
+      </ApiProvider>
     )
   }
 }
