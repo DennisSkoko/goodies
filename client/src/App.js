@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TheHeader from './components/TheHeader'
 import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
-import GlobalStyles from './style/GlobalStyles'
+import GlobalStyle from './style/GlobalStyle'
 import ThemeProvider from './style/ThemeProvider'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <ThemeProvider>
         <Router>
           <>
-            <GlobalStyles />
+            <GlobalStyle />
             <TheHeader />
             <RouterOutlet />
           </>

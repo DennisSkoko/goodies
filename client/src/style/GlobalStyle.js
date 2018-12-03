@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${normalize()};
 
   * {
@@ -13,4 +13,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export default GlobalStyles
+export default GlobalStyle
