@@ -8,7 +8,7 @@ import Text from '../ui/Text'
 function Welcome () {
   return (
     <Jumbotron>
-      <Heading inverted>Welcome to the tasty side!</Heading>
+      <Heading as='h2' inverted>Welcome to the tasty side!</Heading>
       <Text inverted>
         This is a place for people who likes to make good food, to join a
         community where people can share their recipes together. You can share

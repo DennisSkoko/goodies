@@ -6,7 +6,7 @@ import Text from '../ui/Text'
 function NotFound () {
   return (
     <FullPageMessage>
-      <Heading centered marginTop>Page not found (;-;)</Heading>
+      <Heading as='h2' centered marginTop>Page not found (;-;)</Heading>
       <Text centered>Sorry but I couldn't find the page you were looking for.</Text>
     </FullPageMessage>
   )
