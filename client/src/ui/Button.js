@@ -8,7 +8,7 @@ const Button = styled.button`
   cursor: pointer;
   display: inline-block;
   font-family: ${({ theme }) => theme.font.family.body};
-  margin: ${({ theme, margin }) => margin && `${theme.spacing.xs} ${theme.spacing.xs}`};
+  margin: ${({ theme, margin }) => margin && `${theme.spacing.xs}`};
   text-decoration: none;
 
   ${({ theme }) => transitions(['background-color', 'color'], theme.transition.normal)}
