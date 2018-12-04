@@ -6,6 +6,7 @@ const logger = require('../../logger')
 const Ingredient = require('../../db/ingredient')
 const Recipe = require('../../db/recipe')
 const Step = require('../../db/step')
+const User = require('../../db/user')
 
 function addIndexIdAndRecipeId (recipe, items) {
   return items
@@ -17,6 +18,33 @@ function addIndexIdAndRecipeId (recipe, items) {
 }
 
 module.exports.typeDef = gql`
+type Ingredient {
+  id: ID!
+  name: String!
+}
+
+type Step {
+  id: ID!
+  instructions: String!
+}
+
+type Recipe {
+  id: ID!
+  creator: User!
+  name: String!
+  description: String!
+  steps: [Step!]!
+  ingredients: [Ingredient!]!
+  private: Boolean!
+  updated: String
+  created: String!
+}
+
+extend type Query {
+  recipes: [Recipe!]!
+  recipe(id: ID!): Recipe!
+}
+
 input IngredientInput {
   name: String!
 }
@@ -39,6 +67,26 @@ extend type Mutation {
 `
 
 module.exports.resolvers = {
+  Recipe: {
+    creator ({ creator }) {
+      return User.findByPk(creator)
+    },
+
+    ingredients ({ id }) {
+      return Ingredient.findAll({ where: { recipe: id } })
+    },
+
+    steps ({ id }) {
+      return Step.findAll({ where: { recipe: id } })
+    }
+  },
+
+  Query: {
+    recipes () {
+      return Recipe.findAll()
+    }
+  },
+
   Mutation: {
     createRecipe (root, { recipe: { ingredients, steps, ...recipe } }, { user }) {
       if (!user) {
