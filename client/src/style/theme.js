@@ -8,15 +8,15 @@ const color = {
 const theme = {
   color: {
     primary: {
-      dark: darken(0.1, color.primary),
+      dark: darken(0.15, color.primary),
       base: color.primary,
-      light: lighten(0.1, color.primary)
+      light: lighten(0.15, color.primary)
     },
 
     accent: {
-      dark: darken(0.1, color.accent),
+      dark: darken(0.15, color.accent),
       base: color.accent,
-      light: lighten(0.1, color.accent)
+      light: lighten(0.15, color.accent)
     },
 
     black: {

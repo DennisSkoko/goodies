@@ -5,7 +5,9 @@ const Heading = styled.h1`
   font-family: ${({ theme }) => theme.font.family.heading};
   font-size: ${({ theme, as }) => theme.font[as].size};
   font-weight: normal;
-  color: ${({ theme, inverted }) => theme.color[inverted ? 'white' : 'black'].base};
+  color: ${({ theme, inverted }) => inverted
+    ? theme.color.white.light
+    : theme.color.primary.dark};
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
   margin-top: ${({ marginTop }) => marginTop ? '1rem' : '0'};
   margin-bottom: ${({ marginBottom }) => marginBottom ? '.5rem' : '0'};

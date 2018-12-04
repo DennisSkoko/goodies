@@ -34,6 +34,7 @@ const Button = styled.button`
 
     &:active {
       background-color: ${theme.color.white.base};
+      color: ${theme.color.primary.base};
       transition: none;
     }
   `}

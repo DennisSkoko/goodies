@@ -4,7 +4,9 @@ import styled from 'styled-components'
 const Text = styled.p`
   font-family: ${({ theme }) => theme.font.family.body};
   font-size: ${({ theme, type }) => theme.font[type].size};
-  color: ${({ theme, inverted }) => theme.color[inverted ? 'white' : 'black'].base};
+  color: ${({ theme, inverted }) => inverted
+    ? theme.color.white.light
+    : theme.color.primary.dark};
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
   margin-top: ${({ marginTop }) => marginTop ? '1rem' : '0'};
   margin-bottom: ${({ marginBottom }) => marginBottom ? '1rem' : '0'};
