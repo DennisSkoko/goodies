@@ -9,7 +9,7 @@ function Welcome () {
   return (
     <Jumbotron>
       <Heading as='h2' inverted>Welcome to the tasty side!</Heading>
-      <Text inverted>
+      <Text type='lead' inverted>
         This is a place for people who likes to make good food, to join a
         community where people can share their recipes together. You can share
         something that you've learned from your parents, something cool that

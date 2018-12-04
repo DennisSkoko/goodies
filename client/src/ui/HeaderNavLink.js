@@ -4,7 +4,7 @@ import { transitions } from 'polished'
 
 const HeaderNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.color.white.light};
-  font-size: ${({ theme }) => theme.font.body.size};
+  font-size: ${({ theme }) => theme.font.lead.size};
   font-family: ${({ theme }) => theme.font.family.heading};
   padding: ${({ theme }) => theme.spacing.sm};
   display: block;
