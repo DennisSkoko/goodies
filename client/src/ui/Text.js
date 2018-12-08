@@ -10,6 +10,8 @@ const Text = styled.p`
   text-align: ${({ centered }) => centered ? 'center' : 'left'};
   margin-top: ${({ marginTop }) => marginTop ? '1rem' : '0'};
   margin-bottom: ${({ marginBottom }) => marginBottom ? '1rem' : '0'};
+  font-weight: ${({ bold }) => bold && 'bold'};
+  font-style: ${({ italic }) => italic && 'italic'};
 `
 
 Text.propTypes = {
@@ -17,7 +19,9 @@ Text.propTypes = {
   centered: PropTypes.bool,
   marginTop: PropTypes.bool,
   marginBottom: PropTypes.bool,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  bold: PropTypes.bool,
+  italic: PropTypes.bool
 }
 
 Text.defaultProps = {
