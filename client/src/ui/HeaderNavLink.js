@@ -13,7 +13,7 @@ const HeaderNavLink = styled(NavLink)`
 
   ${({ theme }) => transitions(['color', 'transform'], theme.transition.normal)}
 
-  &:hover {
+  &:hover, &:focus {
     color: ${({ theme }) => theme.color.accent.light};
   }
 
