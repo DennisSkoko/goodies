@@ -9,6 +9,7 @@
   "dependencies": {
     "apollo-boost": "^0.1.22",
     "graphql": "^14.0.2",
+    "moment": "^2.22.2",
     "polished": "^2.3.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0-alpha.2",

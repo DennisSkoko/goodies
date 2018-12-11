@@ -10,8 +10,7 @@ function TheHeader () {
       <HeaderTitle>Goodies</HeaderTitle>
       <HeaderNav>
         <HeaderNavLink to='/' exact>Home</HeaderNavLink>
-        <HeaderNavLink to='/about'>About</HeaderNavLink>
-        <HeaderNavLink to='/contact'>Contact</HeaderNavLink>
+        <HeaderNavLink to='/recipe/browse'>Browse</HeaderNavLink>
       </HeaderNav>
     </Header>
   )
