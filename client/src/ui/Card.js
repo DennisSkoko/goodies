@@ -14,7 +14,7 @@ const Card = styled.div`
     ${transitions('border-color', theme.transition.normal)};
 
     &:hover, &:focus {
-      border-color: ${theme.color.primary.light};
+      border-color: ${theme.color.primary.base};
     }
   `}
 `

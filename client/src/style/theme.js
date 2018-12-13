@@ -14,9 +14,9 @@ const theme = {
     },
 
     accent: {
-      dark: darken(0.2, color.accent),
+      dark: darken(0.175, color.accent),
       base: color.accent,
-      light: lighten(0.2, color.accent)
+      light: lighten(0.175, color.accent)
     },
 
     black: {
@@ -56,7 +56,7 @@ const theme = {
     h6: { size: '1.15rem' },
     lead: { size: '1.25rem' },
     body: { size: '1rem' },
-    small: { size: '0.75rem' }
+    small: { size: '0.8rem' }
   },
 
   transition: {
