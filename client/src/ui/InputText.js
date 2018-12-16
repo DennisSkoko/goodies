@@ -6,12 +6,13 @@ import Text from './Text'
 
 const Input = styled.input`
   border: none;
-  border-bottom: ${({ theme }) => `.125rem solid ${theme.color.primary.dark}`};
+  border-bottom: ${({ theme }) => `.125rem solid ${theme.color.primary.base}`};
   padding: ${({ theme }) => `${theme.spacing.xs}`};
   margin: ${({ theme }) => `${theme.spacing.md} 0`};
   width: 100%;
   font-family: ${({ theme }) => theme.font.family.body};
   font-size: ${({ theme }) => theme.font.body.size};
+  color: ${({ theme }) => theme.color.primary.dark};
 `
 
 const Label = styled.label`
@@ -19,14 +20,18 @@ const Label = styled.label`
   position: relative;
 `
 
-const LabelText = styled(Text).attrs({ marginBottom: false })`
+const LabelText = styled(Text).attrs({
+  marginBottom: false,
+  type: ({ focused, inputValue }) => (focused || inputValue !== '') ? 'small' : 'body'
+})`
   position: absolute;
   left: ${({ theme }) => theme.spacing.xs};
   top: 50%;
   transform: translateY(-50%);
   vertical-align: middle;
   cursor: text;
-  ${({ theme }) => transitions(['top', 'transform'], theme.transition.normal)};
+
+  ${({ theme }) => transitions(['top', 'transform', 'font-size'], theme.transition.normal)};
 
   ${({ theme, focused, inputValue }) => (focused || inputValue !== '') && css`
     top: ${theme.spacing.xs};
