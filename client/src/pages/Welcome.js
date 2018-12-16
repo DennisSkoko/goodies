@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
+import ButtonGroup from '../ui/ButtonGroup'
 import Heading from '../ui/Heading'
 import Jumbotron from '../ui/Jumbotron'
 import Text from '../ui/Text'
@@ -15,8 +16,11 @@ function Welcome () {
         something that you've learned from your parents, something cool that
         you accidentally did or something that you saw on Youtube.
       </Text>
-      <Button as={Link} to='/recipe/browse' color='white'>Browse recipes</Button>
-      <Button as={Link} to='/recipe/create' color='white'>Create recipe</Button>
+
+      <ButtonGroup>
+        <Button as={Link} to='/recipe/browse' color='white'>Browse recipes</Button>
+        <Button as={Link} to='/recipe/create' color='white'>Create recipe</Button>
+      </ButtonGroup>
     </Jumbotron>
   )
 }
