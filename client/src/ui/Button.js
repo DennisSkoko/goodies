@@ -6,10 +6,11 @@ const Button = styled.button`
   background-color: transparent;
   border: 1px solid;
   cursor: pointer;
-  display: inline-block;
   font-family: ${({ theme }) => theme.font.family.body};
   margin: ${({ theme, margin }) => margin && `${theme.spacing.xs}`};
   text-decoration: none;
+  display: ${({ block }) => block ? 'block' : 'inline-block'};
+  width: ${({ block }) => block && '100%'};
 
   ${({ theme }) => transitions(['background-color', 'color'], theme.transition.normal)}
 
@@ -58,13 +59,15 @@ const Button = styled.button`
 Button.propTypes = {
   margin: PropTypes.bool,
   compact: PropTypes.bool,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  block: PropTypes.bool
 }
 
 Button.defaultProps = {
   margin: true,
   compact: false,
-  inverted: false
+  inverted: false,
+  block: false
 }
 
 export default Button
