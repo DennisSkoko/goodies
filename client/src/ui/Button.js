@@ -7,24 +7,23 @@ const Button = styled.button`
   border: 1px solid;
   cursor: pointer;
   font-family: ${({ theme }) => theme.font.family.body};
-  margin: ${({ theme, margin }) => margin && `${theme.spacing.xs}`};
   text-decoration: none;
   display: ${({ block }) => block ? 'block' : 'inline-block'};
   width: ${({ block }) => block && '100%'};
 
   ${({ theme }) => transitions(['background-color', 'color'], theme.transition.normal)}
 
-  ${({ theme, compact }) => compact && css`
+  ${({ theme, size }) => size === 'small' && css`
     padding: ${theme.spacing.xs} ${theme.spacing.sm};
     font-size: ${theme.font.small.size};
   `}
 
-  ${({ theme, compact }) => !compact && css`
+  ${({ theme, size }) => size === 'medium' && css`
     padding: ${theme.spacing.sm} ${theme.spacing.md};
     font-size: ${theme.font.body.size};
   `}
 
-  ${({ theme, inverted }) => inverted && css`
+  ${({ theme, color }) => color === 'white' && css`
     border-color: ${theme.color.white.light};
     color: ${theme.color.white.light};
 
@@ -40,33 +39,31 @@ const Button = styled.button`
     }
   `}
 
-  ${({ theme, inverted }) => !inverted && css`
+  ${({ theme, color }) => color === 'primary' && css`
     border-color: ${theme.color.primary.base};
     color: ${theme.color.primary.base};
 
     &:hover {
-      background-color: ${theme.color.primary.light};
+      background-color: ${theme.color.primary.base};
       color: ${theme.color.white.light};
     }
 
     &:active {
-      background-color: ${theme.color.primary.base};
+      background-color: ${theme.color.primary.dark};
       transition: none;
     }
   `}
 `
 
 Button.propTypes = {
-  margin: PropTypes.bool,
-  compact: PropTypes.bool,
-  inverted: PropTypes.bool,
+  color: PropTypes.oneOf(['primary', 'white']),
+  size: PropTypes.oneOf(['small', 'medium']),
   block: PropTypes.bool
 }
 
 Button.defaultProps = {
-  margin: true,
-  compact: false,
-  inverted: false,
+  color: 'primary',
+  size: 'medium',
   block: false
 }
 

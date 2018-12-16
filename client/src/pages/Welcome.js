@@ -15,8 +15,8 @@ function Welcome () {
         something that you've learned from your parents, something cool that
         you accidentally did or something that you saw on Youtube.
       </Text>
-      <Button as={Link} to='/recipe/browse' inverted>Browse recipes</Button>
-      <Button as={Link} to='/recipe/create' inverted>Create recipe</Button>
+      <Button as={Link} to='/recipe/browse' color='white'>Browse recipes</Button>
+      <Button as={Link} to='/recipe/create' color='white'>Create recipe</Button>
     </Jumbotron>
   )
 }
