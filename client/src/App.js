@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ApiProvider from './api/ApiProvider'
+import { AuthProvider } from './hooks/useAuth'
 import TheHeader from './components/TheHeader'
 import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
@@ -11,13 +12,15 @@ class App extends Component {
     return (
       <ApiProvider>
         <ThemeProvider>
-          <Router>
-            <>
-              <GlobalStyle />
-              <TheHeader />
-              <RouterOutlet />
-            </>
-          </Router>
+          <AuthProvider>
+            <Router>
+              <>
+                <GlobalStyle />
+                <TheHeader />
+                <RouterOutlet />
+              </>
+            </Router>
+          </AuthProvider>
         </ThemeProvider>
       </ApiProvider>
     )
