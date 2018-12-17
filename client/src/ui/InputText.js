@@ -20,10 +20,10 @@ const Label = styled.label`
   position: relative;
 `
 
-const LabelText = styled(Text).attrs({
+const LabelText = styled(Text).attrs(({ focused, inputValue }) => ({
   marginBottom: false,
-  type: ({ focused, inputValue }) => (focused || inputValue !== '') ? 'small' : 'body'
-})`
+  type: focused || inputValue !== '' ? 'small' : 'body'
+}))`
   position: absolute;
   left: ${({ theme }) => theme.spacing.xs};
   top: 50%;
