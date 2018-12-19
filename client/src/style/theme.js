@@ -2,7 +2,11 @@ import { darken, lighten } from 'polished'
 
 const color = {
   primary: darken(0.1, 'palevioletred'),
-  accent: darken(0.2, 'papayawhip')
+  accent: darken(0.2, 'papayawhip'),
+  success: '#28a745',
+  danger: '#dc3545',
+  warning: '#ffc107',
+  info: '#17a2b8'
 }
 
 const theme = {
@@ -29,6 +33,30 @@ const theme = {
       dark: '#ddd',
       base: '#eee',
       light: '#fff'
+    },
+
+    success: {
+      dark: darken(0.2, color.success),
+      base: color.success,
+      light: lighten(0.2, color.success)
+    },
+
+    danger: {
+      dark: darken(0.175, color.danger),
+      base: color.danger,
+      light: lighten(0.175, color.danger)
+    },
+
+    warning: {
+      dark: darken(0.2, color.warning),
+      base: color.warning,
+      light: lighten(0.2, color.warning)
+    },
+
+    info: {
+      dark: darken(0.175, color.info),
+      base: color.info,
+      light: lighten(0.175, color.info)
     }
   },
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ApiProvider from './api/ApiProvider'
 import { AuthProvider } from './hooks/useAuth'
+import { ToastsProvider } from './hooks/useToasts'
 import TheHeader from './components/TheHeader'
 import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
@@ -13,13 +14,15 @@ class App extends Component {
       <ApiProvider>
         <ThemeProvider>
           <AuthProvider>
-            <Router>
-              <>
-                <GlobalStyle />
-                <TheHeader />
-                <RouterOutlet />
-              </>
-            </Router>
+            <ToastsProvider>
+              <Router>
+                <>
+                  <GlobalStyle />
+                  <TheHeader />
+                  <RouterOutlet />
+                </>
+              </Router>
+            </ToastsProvider>
           </AuthProvider>
         </ThemeProvider>
       </ApiProvider>
