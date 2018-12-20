@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ApiProvider from './api/ApiProvider'
 import { AuthProvider } from './hooks/useAuth'
-import { ToastsProvider } from './hooks/useToasts'
+import { ToastProvider } from './hooks/useToast'
 import TheHeader from './components/TheHeader'
 import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
@@ -14,7 +14,7 @@ class App extends Component {
       <ApiProvider>
         <ThemeProvider>
           <AuthProvider>
-            <ToastsProvider>
+            <ToastProvider>
               <Router>
                 <>
                   <GlobalStyle />
@@ -22,7 +22,7 @@ class App extends Component {
                   <RouterOutlet />
                 </>
               </Router>
-            </ToastsProvider>
+            </ToastProvider>
           </AuthProvider>
         </ThemeProvider>
       </ApiProvider>

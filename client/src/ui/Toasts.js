@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import useToasts from '../hooks/useToasts'
+import useToast from '../hooks/useToast'
 import Heading from './Heading'
 import Text from './Text'
 
@@ -49,7 +49,7 @@ const Content = styled(Text).attrs({ marginBottom: false })`
 `
 
 function Toasts () {
-  const { toasts } = useToasts()
+  const { toasts } = useToast()
 
   return (
     <Wrapper>

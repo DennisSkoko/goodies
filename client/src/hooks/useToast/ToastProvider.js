@@ -2,7 +2,7 @@ import React, { useReducer } from 'react'
 import PropTypes from 'prop-types'
 import Toasts from '../../ui/Toasts'
 import reducer from './reducer'
-import ToastsContext from './ToastsContext'
+import ToastsContext from './ToastContext'
 
 function ToastsProvider ({ children }) {
   const [state, dispatch] = useReducer(reducer, { toasts: [] })

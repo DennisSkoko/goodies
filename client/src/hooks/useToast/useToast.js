@@ -2,12 +2,12 @@ import { useContext } from 'react'
 import { stripUnit } from 'polished'
 import theme from '../../style/theme'
 import { ADD_TOASTS, REMOVE_TOASTS, PREPARE_REMOVE_TOASTS } from './reducer'
-import ToastsContext from './ToastsContext'
+import ToastContext from './ToastContext'
 
 const TOASTS_LIFETIME_MAX = 8000
 
-function useToasts () {
-  const { state, dispatch } = useContext(ToastsContext)
+function useToast () {
+  const { state, dispatch } = useContext(ToastContext)
 
   return {
     toasts: state.toasts,
@@ -32,4 +32,4 @@ function useToasts () {
   }
 }
 
-export default useToasts
+export default useToast
