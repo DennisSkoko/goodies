@@ -8,7 +8,7 @@ const Card = styled.div`
   display: block;
 
   ${({ theme, to, href }) => (to || href) && css`
-    border: .125rem solid ${theme.color.accent.light};
+    border: ${theme.border.size.normal} solid ${theme.color.accent.light};
     text-decoration: none;
     outline: none;
     ${transitions('border-color', theme.transition.normal)};

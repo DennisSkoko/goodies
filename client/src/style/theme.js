@@ -10,6 +10,14 @@ const color = {
 }
 
 const theme = {
+  border: {
+    size: {
+      thin: '0.0625rem',
+      normal: '0.125rem',
+      thick: '0.25rem'
+    }
+  },
+
   color: {
     primary: {
       dark: darken(0.2, color.primary),
@@ -60,14 +68,6 @@ const theme = {
     }
   },
 
-  spacing: {
-    xs: '.375rem',
-    sm: '.75rem',
-    md: '1.5rem',
-    lg: '3rem',
-    xl: '6rem'
-  },
-
   font: {
     baseSize: '1.1rem',
 
@@ -87,18 +87,23 @@ const theme = {
     small: { size: '0.8rem' }
   },
 
+  grid: {
+    maxWidth: '78rem',
+    gap: '1rem'
+  },
+
+  spacing: {
+    xs: '.375rem',
+    sm: '.75rem',
+    md: '1.5rem',
+    lg: '3rem',
+    xl: '6rem'
+  },
+
   transition: {
     quick: '150ms',
     normal: '300ms',
     slow: '500ms'
-  },
-
-  container: {
-    maxWidth: '78rem'
-  },
-
-  grid: {
-    gap: '1rem'
   }
 }
 

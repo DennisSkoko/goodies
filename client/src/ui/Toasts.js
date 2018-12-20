@@ -24,7 +24,8 @@ const Wrapper = styled.div`
 const Toast = styled.div`
   position: relative;
   max-width: 28rem;
-  border-bottom: ${({ theme, status }) => `.250rem solid ${theme.color[status || 'primary'].dark}`};
+  border-bottom: ${({ theme, status }) =>
+    `${theme.border.size.thick} solid ${theme.color[status || 'primary'].dark}`};
   background-color: ${({ theme, status }) => theme.color[status || 'primary'].base};
   margin-top: ${({ theme }) => theme.spacing.sm};
   animation: ${({ theme }) => css`${slideIn} ${theme.transition.slow}`};

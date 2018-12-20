@@ -6,7 +6,8 @@ import Text from './Text'
 
 const Input = styled.input`
   border: none;
-  border-bottom: ${({ theme }) => `.125rem solid ${theme.color.primary.base}`};
+  border-bottom: ${({ theme }) =>
+    `${theme.border.size.normal} solid ${theme.color.primary.base}`};
   padding: ${({ theme }) => `${theme.spacing.xs}`};
   margin: ${({ theme }) => `${theme.spacing.md} 0`};
   width: 100%;

@@ -4,7 +4,7 @@ import { transitions } from 'polished'
 
 const Button = styled.button`
   background-color: transparent;
-  border: 1px solid;
+  border: ${({ theme }) => `${theme.border.size.thin} solid`};
   cursor: pointer;
   font-family: ${({ theme }) => theme.font.family.body};
   text-decoration: none;
