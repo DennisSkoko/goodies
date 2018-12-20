@@ -24,10 +24,11 @@ const Wrapper = styled.div`
 const Toast = styled.div`
   position: relative;
   max-width: 28rem;
-  border: ${({ theme, status }) => `.125rem solid ${theme.color[status || 'primary'].base}`};
+  border-bottom: ${({ theme, status }) => `.250rem solid ${theme.color[status || 'primary'].dark}`};
   background-color: ${({ theme, status }) => theme.color[status || 'primary'].base};
   margin-top: ${({ theme }) => theme.spacing.sm};
   animation: ${({ theme }) => css`${slideIn} ${theme.transition.slow}`};
+  padding: ${({ theme }) => `${theme.spacing.sm}`};
 
   &:first-child {
     margin-top: 0;
@@ -38,14 +39,8 @@ const Toast = styled.div`
   `}
 `
 
-const Title = styled(Heading).attrs({ as: 'h6', marginBottom: false, inverted: true })`
-  padding: ${({ theme }) => `${theme.spacing.xs}`};
-`
-
 const Content = styled(Text).attrs({ marginBottom: false })`
-  background-color: ${({ theme }) => theme.color.white.light};
-  padding: ${({ theme }) => `${theme.spacing.sm}`};
-  color: ${({ theme, status }) => theme.color[status || 'primary'].dark};
+  color: ${({ theme }) => theme.color.white.light};
 `
 
 function Toasts () {
@@ -58,7 +53,7 @@ function Toasts () {
   return (
     <Wrapper>
       <Toast status={status} isDisappearing={isDisappearing}>
-        <Title>{title}</Title>
+        <Heading as='h6' inverted>{title}</Heading>
         <Content status={status}>{content}</Content>
       </Toast>
     </Wrapper>

@@ -36,27 +36,27 @@ const theme = {
     },
 
     success: {
-      dark: darken(0.2, color.success),
+      dark: darken(0.1, color.success),
       base: color.success,
-      light: lighten(0.2, color.success)
+      light: lighten(0.1, color.success)
     },
 
     danger: {
-      dark: darken(0.175, color.danger),
+      dark: darken(0.1, color.danger),
       base: color.danger,
-      light: lighten(0.175, color.danger)
+      light: lighten(0.1, color.danger)
     },
 
     warning: {
-      dark: darken(0.2, color.warning),
+      dark: darken(0.1, color.warning),
       base: color.warning,
-      light: lighten(0.2, color.warning)
+      light: lighten(0.1, color.warning)
     },
 
     info: {
-      dark: darken(0.175, color.info),
+      dark: darken(0.1, color.info),
       base: color.info,
-      light: lighten(0.175, color.info)
+      light: lighten(0.1, color.info)
     }
   },
 
