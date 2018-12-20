@@ -1,37 +1,37 @@
-const ADD_TOASTS = 'add-toasts'
-const REMOVE_TOASTS = 'remove-toasts'
-const PREPARE_REMOVE_TOASTS = 'prepare-remove-toasts'
+const ADD_TOAST = 'add-toast'
+const REMOVE_TOAST = 'remove-toast'
+const PREPARE_REMOVE_TOAST = 'prepare-remove-toast'
 
 function reducer (state, action) {
   switch (action.type) {
-    case ADD_TOASTS:
+    case ADD_TOAST:
       return {
         ...state,
-        toasts: [
-          ...state.toasts,
-          ...action.toasts
-        ]
+        toast: action.toast,
+        timeouts: action.timeouts
       }
 
-    case REMOVE_TOASTS:
-      return {
-        ...state,
-        toasts: state.toasts.filter(({ key }) => !action.keys.includes(key))
-      }
-
-    case PREPARE_REMOVE_TOASTS:
-      return {
-        ...state,
-        toasts: state.toasts.map(toast => {
-          if (action.keys.includes(toast.key)) {
-            return {
-              ...toast,
-              isDisappearing: true
-            }
-          }
-
-          return toast
+    case REMOVE_TOAST:
+      if (state.timeouts) {
+        state.timeouts.forEach(timeout => {
+          clearTimeout(timeout)
         })
+      }
+
+      return {
+        ...state,
+        toast: null
+      }
+
+    case PREPARE_REMOVE_TOAST:
+      if (!state.toast) return state
+
+      return {
+        ...state,
+        toast: {
+          ...state.toast,
+          isDisappearing: true
+        }
       }
 
     default:
@@ -40,4 +40,4 @@ function reducer (state, action) {
 }
 
 export default reducer
-export { ADD_TOASTS, REMOVE_TOASTS, PREPARE_REMOVE_TOASTS }
+export { ADD_TOAST, REMOVE_TOAST, PREPARE_REMOVE_TOAST }

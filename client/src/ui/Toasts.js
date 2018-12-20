@@ -49,16 +49,18 @@ const Content = styled(Text).attrs({ marginBottom: false })`
 `
 
 function Toasts () {
-  const { toasts } = useToast()
+  const { toast } = useToast()
+
+  if (!toast) return null
+
+  const { status, title, content, isDisappearing } = toast
 
   return (
     <Wrapper>
-      {toasts.map(({ key, status, title, content, isDisappearing }) => (
-        <Toast key={key} status={status} isDisappearing={isDisappearing}>
-          <Title>{title}</Title>
-          <Content status={status}>{content}</Content>
-        </Toast>
-      ))}
+      <Toast status={status} isDisappearing={isDisappearing}>
+        <Title>{title}</Title>
+        <Content status={status}>{content}</Content>
+      </Toast>
     </Wrapper>
   )
 }

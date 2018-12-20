@@ -1,33 +1,34 @@
 import { useContext } from 'react'
 import { stripUnit } from 'polished'
 import theme from '../../style/theme'
-import { ADD_TOASTS, REMOVE_TOASTS, PREPARE_REMOVE_TOASTS } from './reducer'
+import { ADD_TOAST, REMOVE_TOAST, PREPARE_REMOVE_TOAST } from './reducer'
 import ToastContext from './ToastContext'
 
-const TOASTS_LIFETIME_MAX = 8000
+const TOAST_LIFETIME_MAX = 8000
+const TOAST_REMOVE_ANIMATION_TIME = stripUnit(theme.transition.normal)
 
 function useToast () {
   const { state, dispatch } = useContext(ToastContext)
 
   return {
-    toasts: state.toasts,
+    toast: state.toast,
 
-    addToasts (toasts) {
-      dispatch({ type: ADD_TOASTS, toasts })
+    addToast (toast) {
+      if (state.toast) {
+        dispatch({ type: REMOVE_TOAST })
+      }
 
-      setTimeout(() => {
-        dispatch({
-          type: PREPARE_REMOVE_TOASTS,
-          keys: toasts.map(({ key }) => key)
-        })
-      }, TOASTS_LIFETIME_MAX)
+      const timeouts = [
+        setTimeout(() => {
+          dispatch({ type: PREPARE_REMOVE_TOAST })
+        }, TOAST_LIFETIME_MAX),
 
-      setTimeout(() => {
-        dispatch({
-          type: REMOVE_TOASTS,
-          keys: toasts.map(({ key }) => key)
-        })
-      }, TOASTS_LIFETIME_MAX + stripUnit(theme.transition.normal))
+        setTimeout(() => {
+          dispatch({ type: REMOVE_TOAST })
+        }, TOAST_LIFETIME_MAX + TOAST_REMOVE_ANIMATION_TIME)
+      ]
+
+      dispatch({ type: ADD_TOAST, toast, timeouts })
     }
   }
 }

@@ -7,6 +7,7 @@ import Router from './routing/Router'
 import RouterOutlet from './routing/RouterOutlet'
 import GlobalStyle from './style/GlobalStyle'
 import ThemeProvider from './style/ThemeProvider'
+import Toasts from './ui/Toasts'
 
 class App extends Component {
   render () {
@@ -19,6 +20,7 @@ class App extends Component {
                 <>
                   <GlobalStyle />
                   <TheHeader />
+                  <Toasts />
                   <RouterOutlet />
                 </>
               </Router>
