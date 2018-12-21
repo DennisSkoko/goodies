@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { HashRouter } from 'react-router-dom'
 
-function Router ({ children }) {
+function RouterProvider ({ children }) {
   return (
     <HashRouter>
       {children}
@@ -10,8 +10,8 @@ function Router ({ children }) {
   )
 }
 
-Router.propTypes = {
+RouterProvider.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Router
+export default RouterProvider

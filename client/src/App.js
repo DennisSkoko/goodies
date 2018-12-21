@@ -3,7 +3,7 @@ import ApiProvider from './api/ApiProvider'
 import { AuthProvider } from './hooks/useAuth'
 import { ToastProvider } from './hooks/useToast'
 import TheHeader from './components/TheHeader'
-import Router from './routing/Router'
+import RouterProvider from './routing/RouterProvider'
 import RouterOutlet from './routing/RouterOutlet'
 import GlobalStyle from './style/GlobalStyle'
 import ThemeProvider from './style/ThemeProvider'
@@ -16,14 +16,14 @@ class App extends Component {
         <ThemeProvider>
           <AuthProvider>
             <ToastProvider>
-              <Router>
+              <RouterProvider>
                 <>
                   <GlobalStyle />
                   <TheHeader />
                   <Toasts />
                   <RouterOutlet />
                 </>
-              </Router>
+              </RouterProvider>
             </ToastProvider>
           </AuthProvider>
         </ThemeProvider>
