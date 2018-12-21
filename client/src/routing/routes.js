@@ -4,8 +4,8 @@ import SignIn from '../pages/SignIn'
 import NotFound from '../pages/NotFound'
 
 export default [
-  { path: '/', exact: true, component: Welcome },
-  { path: '/recipe/browse', component: RecipeBrowse },
-  { path: '/sign-in', component: SignIn },
-  { component: NotFound }
+  { key: 'Welcome', path: '/', exact: true, component: Welcome },
+  { key: 'RecipeBrowse', path: '/recipe/browse', component: RecipeBrowse },
+  { key: 'SignIn', path: '/sign-in', component: SignIn },
+  { key: 'NotFound', component: NotFound }
 ]

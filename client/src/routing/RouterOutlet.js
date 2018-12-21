@@ -5,8 +5,8 @@ import routes from './routes'
 function RouterOutlet () {
   return (
     <Switch>
-      {routes.map((route, i) => (
-        <Route key={i} {...route} />
+      {routes.map((route) => (
+        <Route {...route} />
       ))}
     </Switch>
   )
