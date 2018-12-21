@@ -11,6 +11,7 @@ function TheHeader () {
       <HeaderNav>
         <HeaderNavLink to='/' exact>Home</HeaderNavLink>
         <HeaderNavLink to='/recipe/browse'>Browse</HeaderNavLink>
+        <HeaderNavLink to='/sign-in'>Sign in</HeaderNavLink>
       </HeaderNav>
     </Header>
   )
