@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import useAuth, { EmailNotRegistered, PasswordIncorrect } from '../hooks/useAuth'
 import Container from '../ui/Container'
@@ -11,15 +9,12 @@ const StyledSignInForm = styled(SignInForm)`
   margin-top: ${({ theme }) => theme.spacing.xl};
 `
 
-function SignIn ({ history }) {
+function SignIn () {
   const { signIn } = useAuth()
   const { addToast } = useToast()
 
   const handleSubmit = ({ email, password }) => {
     signIn({ email, password })
-      .then(() => {
-        history.push('/')
-      })
       .catch(err => {
         if (err instanceof EmailNotRegistered) {
           addToast({
@@ -51,12 +46,4 @@ function SignIn ({ history }) {
   )
 }
 
-SignIn.propTypes = {
-  history: PropTypes
-    .shape({
-      push: PropTypes.func.isRequired
-    })
-    .isRequired
-}
-
-export default withRouter(SignIn)
+export default SignIn
