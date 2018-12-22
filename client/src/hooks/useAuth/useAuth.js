@@ -4,6 +4,7 @@ import api from '../../api/client'
 import AuthContext from './AuthContext'
 import EmailNotRegistered from './EmailNotRegistered'
 import PasswordIncorrect from './PasswordIncorrect'
+import storage from './storage'
 
 const USER_NOT_REGISTERED_ERROR = 'GraphQL error: Email not registered'
 const PASSWORD_INCORRECT_ERROR = 'GraphQL error: Incorrect password'
@@ -26,6 +27,7 @@ function useAuth () {
         .then(result => result.data.authenticate)
         .then(token => {
           setUser({ token })
+          storage.set(token)
         })
         .catch(err => {
           switch (err.message) {
@@ -43,6 +45,7 @@ function useAuth () {
 
     signOut () {
       setUser(null)
+      storage.remove()
     }
   }
 }

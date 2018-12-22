@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import AuthContext from './AuthContext'
+import storage from './storage'
 
 function AuthProvider ({ children }) {
-  const [user, setUser] = useState(null)
+  const token = storage.get()
+  const [user, setUser] = useState(token ? { token } : null)
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
