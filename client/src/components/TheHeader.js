@@ -6,7 +6,7 @@ import HeaderNavLink from '../ui/HeaderNavLink'
 import HeaderTitle from '../ui/HeaderTitle'
 
 function TheHeader () {
-  const { signedIn } = useAuth()
+  const { signedIn, signOut } = useAuth()
 
   return (
     <Header>
@@ -15,6 +15,7 @@ function TheHeader () {
         <HeaderNavLink to='/' exact>Home</HeaderNavLink>
         <HeaderNavLink to='/recipe/browse'>Browse</HeaderNavLink>
         {!signedIn && <HeaderNavLink to='/sign-in'>Sign in</HeaderNavLink>}
+        {signedIn && <HeaderNavLink as='span' onClick={signOut}>Sign out</HeaderNavLink>}
       </HeaderNav>
     </Header>
   )

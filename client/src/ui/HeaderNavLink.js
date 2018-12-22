@@ -10,6 +10,7 @@ const HeaderNavLink = styled(NavLink)`
   display: block;
   outline: none;
   text-decoration: none;
+  cursor: pointer;
 
   ${({ theme }) => transitions(['color', 'transform'], theme.transition.normal)}
 
