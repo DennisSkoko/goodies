@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import logo from '../../res/logo.svg'
 import styles from './Header.module.scss'
 
@@ -12,7 +13,7 @@ function Header ({ links }) {
           <ul className={styles.navigation}>
             {links.map(({ text, to }) => (
               <li key={text}>
-                <a className={styles.navLink} href={to}>{text}</a>
+                <NavLink className={styles.navLink} to={to}>{text}</NavLink>
               </li>
             ))}
           </ul>

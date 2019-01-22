@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
-import HeroHeader from './components/HeroHeader'
+import RouterOutlet from './routing/RouterOutlet'
+import RouterProvider from './routing/RouterProvider'
 import './style'
 
 const links = [
@@ -11,10 +12,12 @@ const links = [
 
 function App () {
   return (
-    <>
-      <Header title='Goodies' links={links} />
-      <HeroHeader />
-    </>
+    <RouterProvider>
+      <>
+        <Header title='Goodies' links={links} />
+        <RouterOutlet />
+      </>
+    </RouterProvider>
   )
 }
 
