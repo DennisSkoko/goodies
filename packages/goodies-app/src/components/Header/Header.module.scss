@@ -1,0 +1,64 @@
+@import '../../style/config';
+
+.header {
+  background-color: transparentize($color-white-base, .5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navLink {
+  font-family: $font-family-content;
+  padding: $spacing-md $spacing-sm;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: $font-size-base;
+  color: inherit;
+  color: $color-primary-base;
+  position: relative;
+  transition: color $animation-duration-normal $animation-timing;
+
+  &.active, &:hover {
+    color: $color-secondary-base;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    height: $border-size-thick;
+    background-color: $color-secondary-base;
+    opacity: 0;
+    transition-property: top, opacity;
+    transition-duration: $animation-duration-normal;
+    transition-timing-function: $animation-timing;
+  }
+
+  &:hover:after, &:focus:after {
+    top: 75%;
+    opacity: 1;
+  }
+}

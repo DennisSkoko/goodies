@@ -1,0 +1,11 @@
+@import '../style/config';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: $color-primary-base $color-white-base;
+  font-size: $font-size-base;
+}
