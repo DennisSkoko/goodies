@@ -1,4 +1,5 @@
 @import '../../style/config';
+@import '../../style/mixins';
 
 .header {
   background-color: transparentize($color-white-base, .5);
@@ -27,7 +28,9 @@
   display: flex;
 }
 
-.navLink {
+.link {
+  @include removeBrowserStyleForFocus();
+
   font-family: $font-family-content;
   padding: $spacing-md $spacing-sm;
   display: block;
@@ -39,7 +42,7 @@
   position: relative;
   transition: color $animation-duration-normal $animation-timing;
 
-  &.active, &:hover {
+  &.active, &:hover, &:focus {
     color: $color-secondary-base;
   }
 

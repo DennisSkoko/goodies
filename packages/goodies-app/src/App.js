@@ -5,7 +5,7 @@ import RouterProvider from './routing/RouterProvider'
 import './style'
 
 const links = [
-  { text: 'Home', to: '/' },
+  { text: 'Home', to: '/', exact: true },
   { text: 'About', to: '/about' },
   { text: 'Contact', to: '/contact' }
 ]

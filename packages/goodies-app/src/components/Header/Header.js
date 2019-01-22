@@ -11,9 +11,15 @@ function Header ({ links }) {
 
         <nav>
           <ul className={styles.navigation}>
-            {links.map(({ text, to }) => (
+            {links.map(({ text, ...props }) => (
               <li key={text}>
-                <NavLink className={styles.navLink} to={to}>{text}</NavLink>
+                <NavLink
+                  className={styles.link}
+                  activeClassName={styles.active}
+                  {...props}
+                >
+                  {text}
+                </NavLink>
               </li>
             ))}
           </ul>
