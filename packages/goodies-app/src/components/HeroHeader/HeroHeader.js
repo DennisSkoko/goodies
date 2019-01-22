@@ -1,6 +1,6 @@
 import React from 'react'
-import Heading from '../Heading'
-import Text from '../Text'
+import Heading from '../../ui/Heading'
+import Text from '../../ui/Text'
 import styles from './HeroHeader.module.scss'
 
 function HeroImage () {
