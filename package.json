@@ -1,8 +1,0 @@
-{
-  "name": "root",
-  "private": true,
-  "bootstrap": "lerna bootstrap",
-  "devDependencies": {
-    "lerna": "^3.10.6"
-  }
-}
