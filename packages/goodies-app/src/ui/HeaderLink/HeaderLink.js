@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './HeaderLink.module.scss'
 
-function HeaderLink(props) {
+function HeaderLink (props) {
   return (
     <li>
       <NavLink
