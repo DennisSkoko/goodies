@@ -1,14 +1,19 @@
 import React from 'react'
+import useAuth from '../../hooks/useAuth'
 import Header from '../../ui/Header'
-
-const links = [
-  { text: 'Home', to: '/', exact: true },
-  { text: 'About', to: '/about' },
-  { text: 'Contact', to: '/contact' }
-]
+import HeaderLink from '../../ui/HeaderLink'
 
 function TheHeader () {
-  return <Header title='Goodies' links={links} />
+  const { signedIn } = useAuth()
+
+  return (
+    <Header title='Goodies'>
+      {!signedIn && <HeaderLink to='/' exact>Welcome</HeaderLink>}
+      {!signedIn && <HeaderLink to='/sign-in'>Sign in</HeaderLink>}
+      {signedIn && <HeaderLink to='/dashboard'>Dashboard</HeaderLink>}
+      {signedIn && <HeaderLink to='/profile'>Profile</HeaderLink>}
+    </Header>
+  )
 }
 
 export default TheHeader

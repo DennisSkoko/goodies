@@ -1,0 +1,40 @@
+@import '../../style/config';
+@import '../../style/mixins';
+
+.link {
+  @include removeBrowserStyleForFocus();
+
+  font-family: $font-family-content;
+  padding: $spacing-md $spacing-sm;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: $font-size-base;
+  color: inherit;
+  color: $color-primary-base;
+  position: relative;
+  transition: color $animation-duration-normal $animation-timing;
+
+  &.active, &:hover, &:focus {
+    color: $color-secondary-base;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    height: $border-size-thick;
+    background-color: $color-secondary-base;
+    opacity: 0;
+    transition-property: top, opacity;
+    transition-duration: $animation-duration-normal;
+    transition-timing-function: $animation-timing;
+  }
+
+  &:hover:after, &:focus:after {
+    top: 75%;
+    opacity: 1;
+  }
+}

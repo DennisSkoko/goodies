@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import logo from '../../res/logo.svg'
 import styles from './Header.module.scss'
 
-function Header ({ links }) {
+function Header ({ children }) {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -11,22 +11,20 @@ function Header ({ links }) {
 
         <nav>
           <ul className={styles.navigation}>
-            {links.map(({ text, ...props }) => (
-              <li key={text}>
-                <NavLink
-                  className={styles.link}
-                  activeClassName={styles.active}
-                  {...props}
-                >
-                  {text}
-                </NavLink>
-              </li>
-            ))}
+            {children}
           </ul>
         </nav>
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  children: PropTypes.node
+}
+
+Header.defaultProps = {
+  children: null
 }
 
 export default Header
