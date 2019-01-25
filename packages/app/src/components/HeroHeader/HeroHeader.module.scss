@@ -1,9 +1,6 @@
 @import '../../style/config';
 
-$hero-image-url: '/img/hero-image.jpg';
-
 .image {
-  background-image: url($hero-image-url);
   background-position: center;
   background-size: cover;
   width: 100%;
