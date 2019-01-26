@@ -9,6 +9,7 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.0-alpha.1",
