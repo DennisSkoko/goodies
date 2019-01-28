@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 const imagesLoaded = []
 
 function useImageLoader ({ original, optimized }) {
-  const [loaded, setLoaded] = useState(imagesLoaded.includes(origin))
+  const [loaded, setLoaded] = useState(imagesLoaded.includes(original))
 
   useEffect(() => {
     if (!loaded) {
