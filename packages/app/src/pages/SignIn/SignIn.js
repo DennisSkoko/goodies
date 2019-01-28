@@ -1,12 +1,21 @@
 import React from 'react'
 import SignInForm from '../../components/SignInForm'
-import styles from './SignIn.module.scss'
+import Link from '../../ui/Link'
+import SectionFullPage from '../../ui/SectionFullPage'
 
 function SignIn () {
+  const handleSubmit = (form) => {
+    console.log('Authenticating')
+    console.log(form)
+  }
+
   return (
-    <div className={styles.wrapper}>
-      <SignInForm />
-    </div>
+    <SectionFullPage>
+      <SignInForm onSubmit={handleSubmit} />
+      <Link href='/create-account' variant='block-centered' spacing>
+        Don't have an account?
+      </Link>
+    </SectionFullPage>
   )
 }
 

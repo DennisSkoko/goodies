@@ -4,9 +4,8 @@ import useInputState from '../../hooks/useInputState'
 import Button from '../../ui/Button'
 import Heading from '../../ui/Heading'
 import InputText from '../../ui/InputText'
-import styles from './SignInForm.module.scss'
 
-function SignInForm ({ onSubmit }) {
+function SignInForm ({ onSubmit, ...props }) {
   const [email, setEmail] = useInputState('')
   const [password, setPassword] = useInputState('')
 
@@ -16,8 +15,8 @@ function SignInForm ({ onSubmit }) {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <Heading type='h2' centered>Sign in</Heading>
+    <div {...props}>
+      <Heading as='h2' type='h3' centered>Sign in</Heading>
 
       <form onSubmit={handleSubmit}>
         <InputText
