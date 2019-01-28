@@ -10,8 +10,8 @@ function App () {
     <RouterProvider>
       <AuthProvider>
         <>
-          <RouterOutlet />
           <TheHeader />
+          <RouterOutlet />
         </>
       </AuthProvider>
     </RouterProvider>
