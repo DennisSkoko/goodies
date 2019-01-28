@@ -14,7 +14,7 @@ function Heading ({ as: As, type, centered, ...props }) {
   return (
     <As
       className={classNames(styles[type], {
-        [styles.centered]: centered,
+        [styles.centered]: centered
       })}
       {...props}
     />
