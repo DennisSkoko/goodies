@@ -16,6 +16,7 @@
   margin: 0;
   font-family: $font-family-content;
   font-size: $font-size-body;
+  color: $color-black-dark;
   cursor: text;
   transition-duration: $animation-duration-normal;
   transition-timing-function: $animation-timing;
@@ -37,4 +38,5 @@
   border: $border-size-default solid $color-black-base;
   font-family: $font-family-content;
   font-size: $font-size-body;
+  color: $color-black-dark;
 }
