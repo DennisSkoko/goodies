@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import classNames from 'classnames'
 import styles from './Link.module.scss'
 
-function Link({ href, className, variant, spacing, ...props }) {
+function Link ({ href, className, variant, spacing, ...props }) {
   const link = (
     <RouterLink
       className={classNames(styles.link, className, {

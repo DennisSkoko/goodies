@@ -14,11 +14,13 @@ function SectionFullPage ({ children, className, ...props }) {
 }
 
 SectionFullPage.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 }
 
 SectionFullPage.defaultProps = {
-  children: null
+  children: null,
+  className: null
 }
 
 export default SectionFullPage
