@@ -1,0 +1,40 @@
+@import '../../style/config';
+@import '../../style/mixins';
+
+.wrapper {
+  position: relative;
+  display: block;
+  margin: $spacing-sm 0;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding-left: $spacing-xs;
+  margin: 0;
+  font-family: $font-family-content;
+  font-size: $font-size-body;
+  cursor: text;
+  transition-duration: $animation-duration-normal;
+  transition-timing-function: $animation-timing;
+  transition-property: top, transform, font-size;
+
+  .wrapper.focused & {
+    top: $spacing-xxs;
+    transform: none;
+    font-size: $font-size-small;
+  }
+}
+
+.input {
+  @include removeBrowserStyleForFocus();
+
+  display: block;
+  padding: $spacing-md $spacing-xs $spacing-xs;
+  width: 100%;
+  border: $border-size-default solid $color-black-base;
+  font-family: $font-family-content;
+  font-size: $font-size-body;
+}

@@ -1,0 +1,39 @@
+@import '../../style/config';
+@import '../../style/mixins';
+
+.button {
+  @include removeBrowserStyleForFocus();
+
+  border: none;
+  font-size: $font-size-body;
+  font-family: $font-family-content;
+  font-weight: bold;
+  padding: $spacing-sm;
+  cursor: pointer;
+  color: $color-white-base;
+  transition-duration: $animation-duration-normal;
+  transition-timing-function: $animation-timing;
+  transition-property: background-color;
+}
+
+.wide {
+  display: block;
+  width: 100%;
+}
+
+.primary {
+  background-color: $color-primary-base;
+
+  &:hover, &:focus {
+    background-color: $color-primary-light;
+  }
+
+  &.disabled, &:active {
+    transition: none;
+    background-color: $color-primary-dark;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}

@@ -1,7 +1,7 @@
 /** Colors
 *******************************************************************************/
 $color-primary-base: #4e5810;
-$color-primary-dark: darken($color-primary-base, 8%);
+$color-primary-dark: darken($color-primary-base, 5%);
 $color-primary-light: lighten($color-primary-base, 8%);
 
 $color-secondary-base: #7e420e;
@@ -20,9 +20,9 @@ $color-gray-dark: #666;
 $color-gray-base: #888;
 $color-gray-light: #aaa;
 
-$color-white-dark: #ccc;
-$color-white-base: #ddd;
-$color-white-light: #eee;
+$color-white-dark: #ddd;
+$color-white-base: #eee;
+$color-white-light: #fff;
 
 /** Spacing
 *******************************************************************************/
