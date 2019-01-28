@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react'
 
+const imagesLoaded = []
+
 function useImageLoader ({ original, optimized }) {
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(imagesLoaded.includes(origin))
 
   useEffect(() => {
-    const img = new Image()
-    img.src = original
+    if (!loaded) {
+      const img = new Image()
+      img.src = original
 
-    img.onload = () => { setLoaded(true) }
+      img.onload = () => {
+        imagesLoaded.push(original)
+        setLoaded(true)
+      }
+    }
   }, [])
 
   return loaded ? original : optimized
