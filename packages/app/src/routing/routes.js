@@ -1,4 +1,5 @@
 import Welcome from '../pages/Welcome'
+import CreateAccount from '../pages/CreateAccount'
 import SignIn from '../pages/SignIn'
 
 export default [
@@ -7,6 +8,12 @@ export default [
     path: '/',
     component: Welcome,
     exact: true
+  },
+
+  {
+    key: 'CreateAccount',
+    path: '/create-account',
+    component: CreateAccount
   },
 
   {
