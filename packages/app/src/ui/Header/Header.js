@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import logo from '../../res/logo.svg'
+import Container from '../Container'
 import styles from './Header.module.scss'
 
 function Header ({ children }) {
   return (
     <header className={styles.header}>
-      <div className={styles.wrapper}>
+      <Container className={styles.wrapper}>
         <img className={styles.logo} src={logo} alt='' />
 
         <nav>
@@ -14,7 +15,7 @@ function Header ({ children }) {
             {children}
           </ul>
         </nav>
-      </div>
+      </Container>
     </header>
   )
 }
