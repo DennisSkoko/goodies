@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import logo from '../../res/logo.svg'
+import logo from '../../res/icons/logo.svg'
 import Container from '../Container'
 import styles from './Header.module.scss'
 

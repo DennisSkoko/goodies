@@ -1,0 +1,11 @@
+@import '../../style/config';
+
+.image {
+  margin: 0 auto;
+  display: block;
+  max-width: 6rem;
+
+  @media #{$sm-and-up} {
+    max-width: 8rem;
+  }
+}

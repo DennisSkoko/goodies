@@ -1,0 +1,48 @@
+@import '../../style/config';
+
+.wrapper {
+  margin: $spacing-xxl 0;
+  padding: 0 $spacing-xl;
+}
+
+.content {
+  @media #{$sm-and-up} {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &.reversed {
+      flex-direction: row;
+    }
+  }
+}
+
+.text,
+.image {
+  flex: 0 0;
+}
+
+.text {
+  flex-basis: 65%;
+}
+
+.image {
+  display: none;
+
+  @media #{$sm-and-up} {
+    display: block;
+    flex-basis: 35%;
+
+    img {
+      width: 100%;
+    }
+
+    .content:not(.reversed) & {
+      padding-left: $spacing-xl;
+    }
+
+    .content.reversed & {
+      padding-right: $spacing-xl;
+    }
+  }
+}
