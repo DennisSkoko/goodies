@@ -7,7 +7,12 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: $color-primary-base $color-white-base;
-  font-size: $font-size-base;
+  font-size: $scale-base;
   color: $color-black-base;
   background-color: $color-white-light;
+
+  @media #{$sm-and-up} { font-size: $scale-sm; }
+  @media #{$md-and-up} { font-size: $scale-md; }
+  @media #{$lg-and-up} { font-size: $scale-lg; }
+  @media #{$xl-and-up} { font-size: $scale-xl; }
 }

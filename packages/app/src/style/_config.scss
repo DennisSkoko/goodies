@@ -36,23 +36,22 @@ $spacing-xxl: 6rem;
 
 /** Typography
 *******************************************************************************/
-$font-size-base: 1.125rem;
 $line-height: 1.2em;
 
 $font-family-display: Acme, sans-serif;
 $font-family-header: Montserrat, sans-serif;
 $font-family-content: Montserrat, sans-serif;
 
-$font-size-display-1: 8rem;
-$font-size-display-2: 7rem;
-$font-size-display-3: 6rem;
-$font-size-display-4: 5rem;
+$font-size-display-1: 7rem;
+$font-size-display-2: 6rem;
+$font-size-display-3: 5rem;
+$font-size-display-4: 4rem;
 
-$font-size-h1: 4.25rem;
-$font-size-h2: 3.5rem;
-$font-size-h3: 3rem;
-$font-size-h4: 2.5rem;
-$font-size-h5: 2rem;
+$font-size-h1: 3.1rem;
+$font-size-h2: 2.85rem;
+$font-size-h3: 2.45rem;
+$font-size-h4: 2.1rem;
+$font-size-h5: 1.85rem;
 $font-size-h6: 1.5rem;
 
 $font-size-lead: 1.25rem;
@@ -74,10 +73,16 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 
-$sm-and-up: screen and (min-width: $breakpoint-sm);
-$md-and-up: screen and (min-width: $breakpoint-md);
-$lg-and-up: screen and (min-width: $breakpoint-lg);
-$xl-and-up: screen and (min-width: $breakpoint-xl);
+$sm-and-up: "screen and (min-width: #{$breakpoint-sm})";
+$md-and-up: "screen and (min-width: #{$breakpoint-md})";
+$lg-and-up: "screen and (min-width: #{$breakpoint-lg})";
+$xl-and-up: "screen and (min-width: #{$breakpoint-xl})";
+
+$scale-base: .85rem;
+$scale-sm: .95rem;
+$scale-md: 1.05rem;
+$scale-lg: 1.125rem;
+$scale-xl: 1.125rem;
 
 /** Animations
 *******************************************************************************/
@@ -86,3 +91,7 @@ $animation-duration-normal: 250ms;
 $animation-duration-slow: 350ms;
 
 $animation-timing: ease;
+
+/** Grid
+*******************************************************************************/
+$grid-max-width: 80rem;
