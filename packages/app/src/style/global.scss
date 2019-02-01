@@ -5,6 +5,7 @@
 }
 
 html {
+  overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: $color-primary-base $color-white-base;
   font-size: $scale-base;
