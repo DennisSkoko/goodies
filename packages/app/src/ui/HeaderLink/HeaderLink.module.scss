@@ -13,6 +13,7 @@
   color: $color-primary-base;
   position: relative;
   transition: color $animation-duration-normal $animation-timing;
+  margin: 0 $spacing-xxs;
 
   &.active, &:hover, &:focus {
     color: $color-secondary-base;
@@ -32,7 +33,7 @@
     transition-timing-function: $animation-timing;
   }
 
-  &:hover:after, &:focus:after {
+  &.active:after, &:hover:after, &:focus:after {
     top: 75%;
     opacity: 1;
   }
