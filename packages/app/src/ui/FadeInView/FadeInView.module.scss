@@ -1,0 +1,14 @@
+@import '../../style/config';
+
+.wrapper {
+  opacity: 0;
+  transform: translateY(20%);
+  transition-duration: $animation-duration-slow;
+  transition-timing-function: $animation-timing;
+  transition-property: opacity, transform;
+}
+
+.show {
+  opacity: 1;
+  transform: none;
+}
