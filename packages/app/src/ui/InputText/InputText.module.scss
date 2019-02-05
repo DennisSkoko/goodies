@@ -2,27 +2,27 @@
 @import '../../style/mixins';
 
 .wrapper {
-  position: relative;
-  display: block;
   margin: $spacing-sm 0;
 }
 
 .label {
+  position: relative;
+  display: block;
+}
+
+.labelText {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
   padding-left: $spacing-xs;
   margin: 0;
-  font-family: $font-family-content;
-  font-size: $font-size-body;
-  color: $color-black-dark;
   cursor: text;
   transition-duration: $animation-duration-normal;
   transition-timing-function: $animation-timing;
   transition-property: top, transform, font-size;
 
-  .wrapper.focused & {
+  .label.focused & {
     top: $spacing-xxs;
     transform: none;
     font-size: $font-size-small;
@@ -39,4 +39,21 @@
   font-family: $font-family-content;
   font-size: $font-size-body;
   color: $color-black-dark;
+}
+
+.error {
+  color: $color-error-base;
+  padding-left: $spacing-xs;
+  transform: translateY(-20%);
+  opacity: 0;
+  transition-duration: $animation-duration-normal;
+  transition-timing-function: $animation-timing;
+  transition-property: transform, opacity;
+  cursor: default;
+
+  &.active {
+    transform: none;
+    opacity: 1;
+    cursor: text;
+  }
 }
