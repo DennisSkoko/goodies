@@ -11,9 +11,12 @@ function SignInForm ({ onSubmit, ...props }) {
   const [password, setPassword] = useInputState('')
   const passwordError = useValidator(password, [rules.isRequired])
 
+  const isFormValid = [emailError, passwordError]
+    .every(error => !error)
+
   const handleSubmit = event => {
     event.preventDefault()
-    if (onSubmit) onSubmit({ email, password })
+    if (onSubmit && isFormValid) onSubmit({ email, password })
   }
 
   return (
@@ -36,7 +39,13 @@ function SignInForm ({ onSubmit, ...props }) {
         error={passwordError}
       />
 
-      <Button type='submit' wide>Sign me in</Button>
+      <Button
+        type='submit'
+        disabled={!isFormValid}
+        wide
+      >
+        Sign me in
+      </Button>
     </form>
   )
 }
