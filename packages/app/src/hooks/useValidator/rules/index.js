@@ -1,2 +1,4 @@
 import isEmail from './isEmail'
-export default { isEmail }
+import isRequired from './isRequired'
+
+export default { isEmail, isRequired }

@@ -1,8 +1,8 @@
 import isEmail from 'validator/lib/isEmail'
 
 const rule = {
-  satisfies: isEmail,
-  message: 'Must provide a valid email'
+  message: 'Must provide a valid email',
+  satisfies: isEmail
 }
 
 export default rule

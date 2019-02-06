@@ -9,6 +9,7 @@ function SignInForm ({ onSubmit, ...props }) {
   const [email, setEmail] = useInputState('')
   const emailError = useValidator(email, [rules.isEmail])
   const [password, setPassword] = useInputState('')
+  const passwordError = useValidator(password, [rules.isRequired])
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -22,8 +23,8 @@ function SignInForm ({ onSubmit, ...props }) {
         id='signin-email'
         type='email'
         value={email}
-        error={emailError}
         onChange={setEmail}
+        error={emailError}
       />
 
       <InputText
@@ -32,6 +33,7 @@ function SignInForm ({ onSubmit, ...props }) {
         type='password'
         value={password}
         onChange={setPassword}
+        error={passwordError}
       />
 
       <Button type='submit' wide>Sign me in</Button>
