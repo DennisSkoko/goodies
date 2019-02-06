@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import useValidator, { rules } from '../../hooks/useValidator'
 import useInputState from '../../hooks/useInputState'
 import Button from '../../ui/Button'
 import InputText from '../../ui/InputText'
 
 function SignInForm ({ onSubmit, ...props }) {
   const [email, setEmail] = useInputState('')
+  const emailError = useValidator(email, [rules.isEmail])
   const [password, setPassword] = useInputState('')
 
   const handleSubmit = event => {
@@ -20,6 +22,7 @@ function SignInForm ({ onSubmit, ...props }) {
         id='signin-email'
         type='email'
         value={email}
+        error={emailError}
         onChange={setEmail}
       />
 
