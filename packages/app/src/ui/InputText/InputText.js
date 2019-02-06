@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import useToggledState from '../../hooks/useToggledState'
 import Text from '../Text'
 import styles from './InputText.module.scss'
 
-function InputText ({ label, id, value, error, ...props }) {
-  const [isFocused, toggleFocused] = useToggledState(false)
+function InputText ({ label, id, value, onChange, error, ...props }) {
+  const [currentError, setCurrentError] = useState(error)
+  const [isFocused, toggleIsFocused] = useToggledState(false)
+  const [isDirty, toogleIsDirty] = useToggledState(false)
+
+  if (!!error && currentError !== error) {
+    setCurrentError(error)
+  }
+
+  const handleChange = (event) => {
+    onChange(event)
+    if (!isDirty) toogleIsDirty()
+  }
+
+  const handleBlur = () => {
+    toggleIsFocused()
+    if (!isDirty) toogleIsDirty()
+  }
+
+  const handleTransitionEnd = () => {
+    if (!!error) setCurrentError(error)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -21,20 +41,22 @@ function InputText ({ label, id, value, error, ...props }) {
         <input
           className={styles.input}
           id={id}
-          onFocus={toggleFocused}
-          onBlur={toggleFocused}
+          onFocus={toggleIsFocused}
+          onBlur={handleBlur}
           value={value}
+          onChange={handleChange}
           {...props}
         />
       </label>
 
       <Text
         type='small'
+        onTransitionEnd={handleTransitionEnd}
         className={classNames(styles.error, {
-          [styles.active]: !!error
+          [styles.active]: isDirty && !!error
         })}
       >
-        {error || '&nbsp;'}
+        {(isDirty && currentError) || '&nbsp;'}
       </Text>
     </div>
   )
