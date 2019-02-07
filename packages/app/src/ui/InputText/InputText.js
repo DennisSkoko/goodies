@@ -10,7 +10,7 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
   const [isFocused, toggleIsFocused] = useToggledState(false)
   const [isDirty, toogleIsDirty] = useToggledState(false)
 
-  if (!!error && currentError !== error) {
+  if (error && currentError !== error) {
     setCurrentError(error)
   }
 
