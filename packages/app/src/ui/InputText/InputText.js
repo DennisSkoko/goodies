@@ -25,7 +25,7 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
   }
 
   const handleTransitionEnd = () => {
-    if (error) setCurrentError(error)
+    if (!error) setCurrentError(error)
   }
 
   return (
