@@ -44,14 +44,14 @@
 .error {
   color: $color-error-base;
   padding-left: $spacing-xs;
+  cursor: default;
   transform: translateY(-20%);
   opacity: 0;
-  transition-duration: $animation-duration-normal;
-  transition-timing-function: $animation-timing;
-  transition-property: transform, opacity;
-  cursor: default;
 
   &.active {
+    transition-duration: $animation-duration-normal;
+    transition-timing-function: $animation-timing;
+    transition-property: transform, opacity;
     transform: none;
     opacity: 1;
     cursor: text;

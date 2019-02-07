@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import useToggledState from '../../hooks/useToggledState'
@@ -6,13 +6,8 @@ import Text from '../Text'
 import styles from './InputText.module.scss'
 
 function InputText ({ label, id, value, onChange, error, ...props }) {
-  const [currentError, setCurrentError] = useState(error)
   const [isFocused, toggleIsFocused] = useToggledState(false)
   const [isDirty, toggleIsDirty] = useToggledState(false)
-
-  if (error && currentError !== error) {
-    setCurrentError(error)
-  }
 
   const handleChange = (event) => {
     onChange(event)
@@ -22,10 +17,6 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
   const handleBlur = () => {
     toggleIsFocused()
     if (!isDirty) toggleIsDirty()
-  }
-
-  const handleTransitionEnd = () => {
-    if (!error) setCurrentError(error)
   }
 
   return (
@@ -51,12 +42,11 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
 
       <Text
         type='small'
-        onTransitionEnd={handleTransitionEnd}
         className={classNames(styles.error, {
           [styles.active]: isDirty && !!error
         })}
       >
-        {(isDirty && currentError) || '&nbsp;'}
+        {(isDirty && error) || '&nbsp;'}
       </Text>
     </div>
   )
