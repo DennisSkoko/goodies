@@ -8,7 +8,7 @@ import styles from './InputText.module.scss'
 function InputText ({ label, id, value, onChange, error, ...props }) {
   const [currentError, setCurrentError] = useState(error)
   const [isFocused, toggleIsFocused] = useToggledState(false)
-  const [isDirty, toogleIsDirty] = useToggledState(false)
+  const [isDirty, toggleIsDirty] = useToggledState(false)
 
   if (error && currentError !== error) {
     setCurrentError(error)
@@ -16,16 +16,16 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
 
   const handleChange = (event) => {
     onChange(event)
-    if (!isDirty) toogleIsDirty()
+    if (!isDirty) toggleIsDirty()
   }
 
   const handleBlur = () => {
     toggleIsFocused()
-    if (!isDirty) toogleIsDirty()
+    if (!isDirty) toggleIsDirty()
   }
 
   const handleTransitionEnd = () => {
-    if (!!error) setCurrentError(error)
+    if (error) setCurrentError(error)
   }
 
   return (
