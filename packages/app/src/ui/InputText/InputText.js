@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import useToggledState from '../../hooks/useToggledState'
+import InputErrorText from '../InputErrorText'
 import Text from '../Text'
 import styles from './InputText.module.scss'
 
@@ -27,7 +28,7 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
           [styles.focused]: isFocused || value !== ''
         })}
       >
-        <Text className={styles.labelText}>{label}</Text>
+        <Text className={styles.text}>{label}</Text>
 
         <input
           className={styles.input}
@@ -40,14 +41,7 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
         />
       </label>
 
-      <Text
-        type='small'
-        className={classNames(styles.error, {
-          [styles.active]: isDirty && !!error
-        })}
-      >
-        {(isDirty && error) || '&nbsp;'}
-      </Text>
+      <InputErrorText error={isDirty && error} />
     </div>
   )
 }

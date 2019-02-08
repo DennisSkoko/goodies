@@ -1,0 +1,18 @@
+@import '../../style/config';
+
+.error {
+  color: $color-error-base;
+  padding-left: $spacing-xs;
+  cursor: default;
+  transition-duration: $animation-duration-normal;
+  transition-timing-function: $animation-timing;
+  transition-property: transform, opacity;
+  transform: translateY(-20%);
+  opacity: 0;
+
+  &.active {
+    transform: none;
+    opacity: 1;
+    cursor: text;
+  }
+}

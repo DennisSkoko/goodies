@@ -10,7 +10,7 @@
   display: block;
 }
 
-.labelText {
+.text {
   position: absolute;
   top: 50%;
   left: 0;
@@ -39,21 +39,4 @@
   font-family: $font-family-content;
   font-size: $font-size-body;
   color: $color-black-dark;
-}
-
-.error {
-  color: $color-error-base;
-  padding-left: $spacing-xs;
-  cursor: default;
-  transform: translateY(-20%);
-  opacity: 0;
-
-  &.active {
-    transition-duration: $animation-duration-normal;
-    transition-timing-function: $animation-timing;
-    transition-property: transform, opacity;
-    transform: none;
-    opacity: 1;
-    cursor: text;
-  }
 }
