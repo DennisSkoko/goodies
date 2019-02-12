@@ -41,7 +41,7 @@ function InputText ({ label, id, value, onChange, error, ...props }) {
         />
       </label>
 
-      <InputErrorText error={isDirty && error} />
+      <InputErrorText error={isDirty ? error : null} />
     </div>
   )
 }

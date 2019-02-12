@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Text from '../Text'
 import styles from './InputErrorText.module.scss'
@@ -35,6 +36,14 @@ function InputErrorText ({ error: stagedError, ...props }) {
       {currentError || '&nbsp;'}
     </Text>
   )
+}
+
+InputErrorText.propTypes = {
+  error: PropTypes.string
+}
+
+InputErrorText.defaultProps = {
+  error: null
 }
 
 export default InputErrorText
