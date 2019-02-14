@@ -7,10 +7,10 @@ function Button ({ wide, color, disabled, onClick, ...props }) {
   return (
     <button
       className={classNames([styles.button, styles.primary], {
-        [styles.wide]: wide,
-        [styles.disabled]: disabled
+        [styles.wide]: wide
       })}
       onClick={disabled ? null : onClick}
+      disabled={disabled}
       {...props}
     />
   )

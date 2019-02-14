@@ -14,6 +14,10 @@
   transition-duration: $animation-duration-normal;
   transition-timing-function: $animation-timing;
   transition-property: background-color;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .wide {
@@ -28,12 +32,8 @@
     background-color: $color-primary-light;
   }
 
-  &.disabled, &:active {
+  &:disabled, &:active {
     transition: none;
     background-color: $color-primary-dark;
   }
-}
-
-.disabled {
-  cursor: not-allowed;
 }
