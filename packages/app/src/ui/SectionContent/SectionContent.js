@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Container from '../../ui/Container'
+import Container from '../Container'
 import styles from './SectionContent.module.scss'
 
 function SectionContent ({ children, image, header, className, reversed }) {
