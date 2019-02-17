@@ -6,7 +6,6 @@
   line-height: $line-height;
   margin: 0 0 $font-spacing-content;
   font-family: $font-family-content;
-  color: $color-primary-base;
 
   &:last-child {
     margin-bottom: 0;
@@ -16,6 +15,9 @@
 .small { font-size: $font-size-small; }
 .body { font-size: $font-size-body; }
 .lead { font-size: $font-size-lead; }
+
+.primary { color: $color-primary-base; }
+.white { color: $color-white-base; }
 
 .centered {
   text-align: center

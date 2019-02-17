@@ -10,7 +10,6 @@
 .h4,
 .h5,
 .h6 {
-  color: $color-primary-base;
   line-height: $line-height;
   margin: 0 0 $font-spacing-header;
 
@@ -45,6 +44,9 @@
 .h4 { font-size: $font-size-h4; }
 .h5 { font-size: $font-size-h5; }
 .h6 { font-size: $font-size-h6; }
+
+.primary { color: $color-primary-base; }
+.white { color: $color-white-base; }
 
 .centered {
   text-align: center;
