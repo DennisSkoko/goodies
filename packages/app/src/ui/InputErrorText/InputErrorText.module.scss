@@ -1,7 +1,7 @@
 @import '../../style/config';
 
 .error {
-  color: $color-error-base;
+  color: $color-danger-base;
   padding-left: $spacing-xs;
   cursor: default;
   transition-duration: $animation-duration-normal;

@@ -24,7 +24,21 @@ $color-white-dark: #ddd;
 $color-white-base: #eee;
 $color-white-light: #fff;
 
-$color-error-base: rgb(202, 38, 38);
+$color-success-base: #28a745;
+$color-success-dark: darken($color-success-base, 10%);
+$color-success-light: lighten($color-success-base, 10%);
+
+$color-danger-base: #dc3545;
+$color-danger-dark: darken($color-danger-base, 10%);
+$color-danger-light: lighten($color-danger-base, 10%);
+
+$color-warning-base: #ecb510;
+$color-warning-dark: darken($color-warning-base, 10%);
+$color-warning-light: llighten($color-warning-base, 10%);
+
+$color-info-base: #17a2b8;
+$color-info-dark: darken($color-info-base, 10%);
+$color-info-light: llighten($color-info-base, 10%);
 
 /** Spacing
 *******************************************************************************/
