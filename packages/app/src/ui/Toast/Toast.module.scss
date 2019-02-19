@@ -1,0 +1,73 @@
+@import '../../style/config';
+@import '../../style/mixins';
+
+@keyframes slideIn {
+  from { right: -120% }
+  to { right: 0 }
+}
+
+@keyframes slideOut {
+  from { right: 0 }
+  to { right: -120% }
+}
+
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: $spacing-md;
+  padding-bottom: $spacing-md;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.toast {
+  position: relative;
+  max-width: 28rem;
+  padding: $spacing-sm;
+  padding-right: $spacing-lg;
+  border-bottom: $border-size-thick solid;
+  animation: slideIn $animation-duration-slow $animation-timing;
+
+  &.disappearing {
+    animation: slideOut $animation-duration-normal $animation-timing;
+  }
+
+  &.success {
+    background-color: $color-success-base;
+    border-bottom-color: $color-success-dark;
+  }
+
+  &.danger {
+    background-color: $color-danger-base;
+    border-bottom-color: $color-danger-dark;
+  }
+
+  &.warning {
+    background-color: $color-warning-base;
+    border-bottom-color: $color-warning-dark;
+  }
+
+  &.info {
+    background-color: $color-info-base;
+    border-bottom-color: $color-info-dark;
+  }
+}
+
+.close {
+  @include removeBrowserStyleForFocus();
+
+  position: absolute;
+  top: $spacing-xs;
+  right: $spacing-xs;
+  background-color: transparent;
+  border: 0;
+  padding: $spacing-xxs;
+  cursor: pointer;
+
+  .icon {
+    fill: $color-white-base;
+    width: 1rem;
+    height: 1rem;
+  }
+}
