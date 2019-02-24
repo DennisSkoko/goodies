@@ -3,11 +3,6 @@ const hasher = require('../hasher')
 
 const db = admin.firestore().collection('users')
 
-function filterData (data) {
-  const { password, ...user } = data
-  return user
-}
-
 module.exports = {
   async create ({ email, name, password }) {
     const hash = await hasher.hash(password)
@@ -21,7 +16,7 @@ module.exports = {
     })
     const doc = await ref.get()
 
-    return { uid: ref.id, ...filterData(doc.data()) }
+    return { uid: ref.id, ...doc.data() }
   },
 
   async get ({ uid, email }) {
@@ -29,13 +24,13 @@ module.exports = {
       const doc = await db.doc(uid).get()
       if (!doc.exists) return null
 
-      return { uid, ...filterData(doc.data()) }
+      return { uid, ...doc.data() }
     }
 
     const query = await db.where('email', '==', email).get()
     if (query.empty) return null
 
     const doc = query.docs[0]
-    return { uid, ...filterData(doc.data()) }
+    return { uid, ...doc.data() }
   }
 }
