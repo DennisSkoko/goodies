@@ -1,0 +1,15 @@
+{
+  "name": "infrastructure",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "deploy": "firebase deploy",
+    "deploy:functions": "firebase deploy --only functions",
+    "logs:functions": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-tools": "^6.3.1"
+  }
+}
