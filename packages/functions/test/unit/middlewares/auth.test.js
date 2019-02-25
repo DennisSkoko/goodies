@@ -12,7 +12,6 @@ describe('POST /auth/sign-up', () => {
     jest.spyOn(jwt, 'sign').mockResolvedValue('<jwt-token>')
   })
 
-  afterEach(() => { jest.clearAllMocks() })
   afterAll(() => { jest.restoreAllMocks() })
 
   it('rejects when the user exists', async () => {

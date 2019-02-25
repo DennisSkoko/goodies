@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "jest --watch",
+    "test:cov": "jest --coverage",
     "lint": "eslint --ignore-path .gitignore ."
   },
   "main": "src/index.js",
