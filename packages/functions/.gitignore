@@ -4,3 +4,6 @@
 # logs
 npm-debug.log*
 firebase-debug.log*
+
+# coverage
+coverage
