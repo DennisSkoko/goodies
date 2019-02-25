@@ -20,7 +20,7 @@ router.post('/auth/sign-up', async (req, res, next) => {
     const newUser = await db.user.create({ email, name, password })
     const token = await jwt.sign(_.omit(['password'], newUser))
 
-    res.json({ token })
+    res.status(201).json({ token })
   } catch (err) {
     next(err)
   }

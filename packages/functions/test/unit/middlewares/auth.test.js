@@ -29,7 +29,7 @@ describe('POST /auth/sign-up', () => {
 
     const res = await act()
 
-    expect(res.statusCode).toBe(200)
+    expect(res.statusCode).toBe(201)
     expect(jwt.sign).toHaveBeenCalledWith(
       expect.not.objectContaining({
         password: 'secret'
@@ -43,7 +43,7 @@ describe('POST /auth/sign-up', () => {
 
     const res = await act()
 
-    expect(res.statusCode).toBe(200)
+    expect(res.statusCode).toBe(201)
     expect(res.body).toEqual({ token: '<jwt-token>' })
   })
 
