@@ -6,7 +6,7 @@ class UserSuspended extends HttpError {
     super(
       'User is suspended and is now allowed to authenticate',
       ErrorCode.UserSuspended,
-      401
+      403
     )
   }
 }
