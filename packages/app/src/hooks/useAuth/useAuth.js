@@ -1,30 +1,36 @@
 import { useContext } from 'react'
 import AuthContext from './AuthContext'
-
-const FAKE_JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+import useFirebase from '../useFirebase'
 
 function useAuth () {
-  const { token, setToken } = useContext(AuthContext)
+  const { auth } = useFirebase()
+  const { user, setUser } = useContext(AuthContext)
 
   return {
-    signedIn: !!token,
+    signedIn: !!user,
 
-    signIn () {
-      return new Promise(resolve => {
-        setTimeout(() => { resolve(FAKE_JWT) }, 800)
-      })
-        .then(token => {
-          setToken(token)
-        })
+    async signIn ({ email, password }) {
+      const { user } = await auth.signInWithEmailAndPassword(email, password)
+
+      setUser(user)
+      return user
     },
 
-    signOut () {
-      return new Promise(resolve => {
-        setTimeout(() => { resolve() }, 200)
-      })
-        .then(() => {
-          setToken(null)
+    async signUp ({ email, password }) {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password)
+
+      user.sendEmailVerification()
+        .catch(err => {
+          console.error('Failed to send a verification email', err)
         })
+
+      setUser(user)
+      return user
+    },
+
+    async signOut () {
+      await auth.signOut()
+      setUser(null)
     }
   }
 }
