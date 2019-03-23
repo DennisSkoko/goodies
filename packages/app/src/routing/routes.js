@@ -1,5 +1,6 @@
 import Welcome from '../pages/Welcome'
 import CreateAccount from '../pages/CreateAccount'
+import NotFound from '../pages/NotFound/NotFound'
 import SignIn from '../pages/SignIn'
 
 export default [
@@ -23,5 +24,11 @@ export default [
     path: '/sign-in',
     component: SignIn,
     auth: false
+  },
+
+  {
+    key: 'NotFound',
+    path: '*',
+    component: NotFound
   }
 ]
