@@ -7,18 +7,21 @@ export default [
     key: 'Welcome',
     path: '/',
     component: Welcome,
-    exact: true
+    exact: true,
+    auth: false
   },
 
   {
     key: 'CreateAccount',
     path: '/create-account',
-    component: CreateAccount
+    component: CreateAccount,
+    auth: false
   },
 
   {
     key: 'SignIn',
     path: '/sign-in',
-    component: SignIn
+    component: SignIn,
+    auth: false
   }
 ]
