@@ -1,13 +1,33 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import SignInForm from '../../components/SignInForm'
+import useAuth, { AuthErrorCode } from '../../hooks/useAuth'
+import useToast from '../../hooks/useToast'
 import Heading from '../../ui/Heading'
 import Link from '../../ui/Link'
 import SectionFullPage from '../../ui/SectionFullPage'
 
-function SignIn () {
-  const handleSubmit = (form) => {
-    console.log('Authenticating')
-    console.log(form)
+const warningErrors = [
+  AuthErrorCode.USER_NOT_FOUND,
+  AuthErrorCode.WRONG_PASSWORD
+]
+
+function SignIn ({ history }) {
+  const { signIn } = useAuth()
+  const { addToast } = useToast()
+
+  const handleSubmit = async ({ email, password }) => {
+    try {
+      await signIn({ email, password })
+      history.push('/dashboard')
+    } catch (err) {
+      addToast({
+        type: warningErrors.includes(err.code) ? 'warning' : 'danger',
+        title: 'Failed to authenticate',
+        content: err.message
+      })
+    }
   }
 
   return (
@@ -21,4 +41,8 @@ function SignIn () {
   )
 }
 
-export default SignIn
+SignIn.propTypes = {
+  history: PropTypes.object.isRequired
+}
+
+export default withRouter(SignIn)
