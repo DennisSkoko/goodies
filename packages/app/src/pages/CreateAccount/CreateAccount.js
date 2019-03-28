@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import CreateAccountForm from '../../components/CreateAccountForm'
 import useAuth from '../../hooks/useAuth'
 import useToast from '../../hooks/useToast'
@@ -6,13 +7,14 @@ import Heading from '../../ui/Heading'
 import Link from '../../ui/Link'
 import SectionFullPage from '../../ui/SectionFullPage'
 
-function CreateAccount () {
+function CreateAccount ({ navigate }) {
   const { signUp } = useAuth()
   const { addToast } = useToast()
 
   const handleSubmit = async ({ email, password }) => {
     try {
       await signUp({ email, password })
+      navigate('/')
     } catch (err) {
       addToast({
         type: 'danger',
@@ -31,6 +33,10 @@ function CreateAccount () {
       </Link>
     </SectionFullPage>
   )
+}
+
+CreateAccount.propTypes = {
+  navigate: PropTypes.func.isRequired
 }
 
 export default CreateAccount

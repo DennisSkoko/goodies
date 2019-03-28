@@ -1,16 +1,21 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import ProtectedRoute from './ProtectedRoute'
-import routes from './routes'
+import { Router } from '@reach/router'
+import useAuth from '../hooks/useAuth'
+import CreateAccount from '../pages/CreateAccount'
+import NotFound from '../pages/NotFound'
+import SignIn from '../pages/SignIn'
+import Welcome from '../pages/Welcome'
 
 function RouterOutlet () {
+  const { signedIn } = useAuth()
+
   return (
-    <Switch>
-      {routes.map(({ auth, ...route }) => auth !== undefined
-        ? <ProtectedRoute requiresAuth={auth} {...route} />
-        : <Route {...route} />
-      )}
-    </Switch>
+    <Router>
+      {!signedIn && <Welcome path='/' />}
+      {!signedIn && <CreateAccount path='/create-account' />}
+      {!signedIn && <SignIn path='/sign-in' />}
+      <NotFound default />
+    </Router>
   )
 }
 

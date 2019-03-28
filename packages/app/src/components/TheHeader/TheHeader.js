@@ -8,7 +8,7 @@ function TheHeader () {
 
   return (
     <Header title='Goodies'>
-      {!signedIn && <HeaderLink to='/' exact>Welcome</HeaderLink>}
+      {!signedIn && <HeaderLink to='/'>Welcome</HeaderLink>}
       {!signedIn && <HeaderLink to='/sign-in'>Sign in</HeaderLink>}
       {signedIn && <HeaderLink to='/dashboard'>Dashboard</HeaderLink>}
       {signedIn && <HeaderLink to='/profile'>Profile</HeaderLink>}

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink } from '@reach/router'
 import classNames from 'classnames'
 import styles from './Link.module.scss'
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SignInForm from '../../components/SignInForm'
 import useAuth, { AuthErrorCode } from '../../hooks/useAuth'
 import useToast from '../../hooks/useToast'
@@ -11,13 +12,14 @@ const warningErrors = [
   AuthErrorCode.WRONG_PASSWORD
 ]
 
-function SignIn () {
+function SignIn ({ navigate }) {
   const { signIn } = useAuth()
   const { addToast } = useToast()
 
   const handleSubmit = async ({ email, password }) => {
     try {
       await signIn({ email, password })
+      navigate('/')
     } catch (err) {
       addToast({
         type: warningErrors.includes(err.code) ? 'warning' : 'danger',
@@ -36,6 +38,10 @@ function SignIn () {
       </Link>
     </SectionFullPage>
   )
+}
+
+SignIn.propTypes = {
+  navigate: PropTypes.func.isRequired
 }
 
 export default SignIn

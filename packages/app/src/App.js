@@ -4,7 +4,6 @@ import { AuthProvider } from './hooks/useAuth'
 import { ToastProvider } from './hooks/useToast'
 import { createFirebaseApp, FirebaseProvider } from './hooks/useFirebase'
 import RouterOutlet from './routing/RouterOutlet'
-import RouterProvider from './routing/RouterProvider'
 import Toast from './ui/Toast'
 import './style'
 
@@ -27,17 +26,15 @@ function App () {
 
   return (
     <FirebaseProvider app={firebaseApp.current}>
-      <RouterProvider>
-        <AuthProvider>
-          <ToastProvider>
-            <>
-              <TheHeader />
-              <Toast />
-              <RouterOutlet />
-            </>
-          </ToastProvider>
-        </AuthProvider>
-      </RouterProvider>
+      <AuthProvider>
+        <ToastProvider>
+          <>
+            <TheHeader />
+            <Toast />
+            <RouterOutlet />
+          </>
+        </ToastProvider>
+      </AuthProvider>
     </FirebaseProvider>
   )
 }

@@ -1,13 +1,17 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import classNames from 'classnames'
+import { Link } from '@reach/router'
 import styles from './HeaderLink.module.scss'
 
 function HeaderLink (props) {
   return (
     <li>
-      <NavLink
-        className={styles.link}
-        activeClassName={styles.active}
+      <Link
+        getProps={({ isCurrent }) => ({
+          className: classNames(styles.link, {
+            [styles.active]: isCurrent
+          })
+        })}
         {...props}
       />
     </li>
