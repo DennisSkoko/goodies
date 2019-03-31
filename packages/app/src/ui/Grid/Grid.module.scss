@@ -1,0 +1,11 @@
+@import '../../style/config';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $grid-gap-size;
+}
+
+.equalHeights {
+  grid-auto-rows: 1fr;
+}
