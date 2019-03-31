@@ -19,7 +19,7 @@ function SignIn ({ navigate }) {
   const handleSubmit = async ({ email, password }) => {
     try {
       await signIn({ email, password })
-      navigate('/')
+      if (navigate) navigate('/')
     } catch (err) {
       addToast({
         type: warningErrors.includes(err.code) ? 'warning' : 'danger',
@@ -41,7 +41,11 @@ function SignIn ({ navigate }) {
 }
 
 SignIn.propTypes = {
-  navigate: PropTypes.func.isRequired
+  navigate: PropTypes.func
+}
+
+SignIn.defaultProps = {
+  navigate: null
 }
 
 export default SignIn

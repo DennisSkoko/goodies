@@ -14,7 +14,7 @@ function CreateAccount ({ navigate }) {
   const handleSubmit = async ({ email, password }) => {
     try {
       await signUp({ email, password })
-      navigate('/')
+      if (navigate) navigate('/')
     } catch (err) {
       addToast({
         type: 'danger',
@@ -36,7 +36,11 @@ function CreateAccount ({ navigate }) {
 }
 
 CreateAccount.propTypes = {
-  navigate: PropTypes.func.isRequired
+  navigate: PropTypes.func
+}
+
+CreateAccount.defaultProps = {
+  navigate: null
 }
 
 export default CreateAccount
