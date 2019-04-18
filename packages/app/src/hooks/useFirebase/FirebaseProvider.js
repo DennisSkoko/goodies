@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FirebaseContext from './FirebaseContext'
 
-function AuthProvider ({ app, ...props }) {
+function FirebaseProvider ({ app, ...props }) {
   return <FirebaseContext.Provider {...props} value={app} />
 }
 
-AuthProvider.propTypes = {
+FirebaseProvider.propTypes = {
   app: PropTypes.any.isRequired
 }
 
-export default AuthProvider
+export default FirebaseProvider
