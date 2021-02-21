@@ -1,0 +1,17 @@
+{
+  "name": "@goodies/cloud-infrastructure",
+  "private": true,
+  "scripts": {
+    "deploy": "cdk deploy",
+    "cdk": "cdk",
+    "lint": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.90.1",
+    "aws-cdk": "^1.90.1"
+  }
+}

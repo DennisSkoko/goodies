@@ -1,0 +1,7 @@
+{
+  "name": "@goodies/root",
+  "private": true,
+  "dependencies": {
+    "lerna": "^3.22.1"
+  }
+}
