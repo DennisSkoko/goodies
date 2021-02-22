@@ -15,7 +15,7 @@ class Api extends core.Stack {
     super(scope, id, props)
 
     if (!props.database.secret) {
-      throw new Error('[Api] The given database must have a secret associated')
+      throw new Error('[stacks/Api] The given database must have a secret associated')
     }
 
     const api = new appsync.GraphqlApi(this, 'Api', {
