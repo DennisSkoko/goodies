@@ -4,3 +4,6 @@ npm-debug.log*
 
 # aws-cdk
 cdk.out
+
+# env files
+.env
