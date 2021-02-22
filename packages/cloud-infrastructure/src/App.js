@@ -22,7 +22,7 @@ class App extends core.App {
     new Api(this, `${props.name}Api`, {
       env: props.env,
       vpc: vpc.vpc,
-      database: database.cluster
+      database: database.instance
     })
   }
 }
