@@ -2,6 +2,7 @@
 
 const core = require('@aws-cdk/core')
 const appsync = require('@aws-cdk/aws-appsync')
+const ec2 = require('@aws-cdk/aws-ec2')
 const Function = require('./Function')
 
 class DatabaseDataSource extends core.Construct {
@@ -14,17 +15,31 @@ class DatabaseDataSource extends core.Construct {
   constructor(scope, id, props) {
     super(scope, id)
 
+    if (!props.database.secret) {
+      throw new Error(
+        'The given database instance must have a secret assigned to it'
+      )
+    }
+
     /** @readonly */
     this.managerFunc = new Function(this, `${id}ManagerFunction`, {
       project: 'database',
       handler: 'manager',
-      vpc: props.vpc
+      vpc: props.vpc,
+      vpcSubnets: {
+        subnetType: ec2.SubnetType.PUBLIC
+      },
+      allowPublicSubnet: true,
+      timeout: core.Duration.seconds(30),
+      environment: {
+        GOODIES_DB_SECRET_ARN: props.database.secret.secretArn
+      }
     })
 
     /** @readonly */
     this.dataSource = new appsync.LambdaDataSource(this, `${id}DataSource`, {
       lambdaFunction: this.managerFunc,
-      api: props.api
+      api: props.api,
     })
 
     this.dataSource.createResolver

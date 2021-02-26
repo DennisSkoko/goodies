@@ -37,7 +37,8 @@ class Api extends core.Stack {
 
     const dsDatabase = new DatabaseDataSource(this, 'Database', {
       vpc: props.vpc,
-      api
+      api,
+      database: props.database
     })
 
     dsDatabase.createResolver({

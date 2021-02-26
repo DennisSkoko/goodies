@@ -13,6 +13,12 @@ class Database extends core.Stack {
   constructor(scope, id, props) {
     super(scope, id, props)
 
+    const securityGroup = new ec2.SecurityGroup(this, 'SecurityGroup', {
+      vpc: props.vpc
+    })
+
+    securityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(3306))
+
     this.instance = new rds.DatabaseInstance(this, 'Database', {
       engine: rds.DatabaseInstanceEngine.mariaDb({
         version: rds.MariaDbEngineVersion.VER_10_4_13
@@ -29,7 +35,8 @@ class Database extends core.Stack {
       instanceType: ec2.InstanceType.of(
         ec2.InstanceClass.T2,
         ec2.InstanceSize.MICRO
-      )
+      ),
+      securityGroups: [securityGroup]
     })
   }
 }

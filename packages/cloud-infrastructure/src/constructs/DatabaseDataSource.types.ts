@@ -1,5 +1,6 @@
 import { GraphqlApi, BaseResolverProps } from '@aws-cdk/aws-appsync'
 import { Vpc } from '@aws-cdk/aws-ec2'
+import { DatabaseInstance } from '@aws-cdk/aws-rds'
 
 export type ManagerRequest =
   { action: 'get', props: { id: string } } |
@@ -9,6 +10,7 @@ export type ManagerRequest =
 export type ConstructorProps = {
   api: GraphqlApi
   vpc: Vpc
+  database: DatabaseInstance
 }
 
 export type CreateResolverProps = Omit<
