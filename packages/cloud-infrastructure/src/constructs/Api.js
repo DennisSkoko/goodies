@@ -5,20 +5,20 @@ const core = require('@aws-cdk/core')
 const appsync = require('@aws-cdk/aws-appsync')
 const DatabaseDataSource = require('../constructs/DatabaseDataSource')
 
-class Api extends core.Stack {
+class Api extends core.Construct {
   /**
    * @param {import('@aws-cdk/core').Construct} scope
    * @param {string} id
    * @param {import('./Api.types').ApiProps} props
    */
   constructor(scope, id, props) {
-    super(scope, id, props)
+    super(scope, id)
 
     if (!props.database.secret) {
-      throw new Error('[stacks/Api] The given database must have a secret associated')
+      throw new Error('The given database must have a secret associated')
     }
 
-    const api = new appsync.GraphqlApi(this, 'Api', {
+    const api = new appsync.GraphqlApi(this, `${id}Api`, {
       name: id,
       schema: appsync.Schema.fromAsset(
         path.join(__dirname, '../res/schema.gql')
@@ -35,7 +35,7 @@ class Api extends core.Stack {
       }
     })
 
-    const dsDatabase = new DatabaseDataSource(this, 'Database', {
+    const dsDatabase = new DatabaseDataSource(this, `${id}Database`, {
       vpc: props.vpc,
       api,
       database: props.database
